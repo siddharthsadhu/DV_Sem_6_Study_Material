@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Visualization – Full Question Bank Solutions</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1400px;
+      margin: 30px auto;
+    }
+
+    .chapter {
+      background: white;
+      border-radius: 14px;
+      padding: 30px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .chapter h2 {
+      color: #1e3c72;
+      border-left: 8px solid #2a5298;
+      padding-left: 14px;
+      margin-bottom: 25px;
+    }
+
+    .question {
+      margin-bottom: 35px;
+      padding: 20px;
+      border-left: 5px solid #4a90e2;
+      background: #f9fbff;
+      border-radius: 8px;
+    }
+
+    .question h3 {
+      margin-top: 0;
+      color: #0d47a1;
+    }
+
+    .answer {
+      margin-top: 10px;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #f5f5f5;
+      padding: 16px;
+      overflow-x: auto;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    code {
+      color: #ffdd57;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #bbb;
+    }
+
+    th {
+      background: #2a5298;
+      color: white;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    .diagram {
+      background: #eef5ff;
+      border: 2px dashed #4a90e2;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      background: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #1e3c72;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Data Visualization</h1>
+  <p>Complete Question Bank Solutions – Semester VI ICT & CSE</p>
+</header>
+
+<div class="container">
+
+  <div class="chapter">
+    <h2>Chapter 1 – Introduction to Data Visualization</h2>
+
+    <div class="question">
+      <h3>1. Define Data Visualization. Why is it important?</h3>
+      <div class="answer">
+        <p><strong>Data Visualization</strong> is the graphical representation of data using charts, graphs, maps, and dashboards to make information easy to understand.</p>
+
+        <h4>Importance:</h4>
+        <ul>
+          <li>Helps identify trends and patterns quickly.</li>
+          <li>Improves decision making in businesses.</li>
+          <li>Makes complex data understandable.</li>
+          <li>Used in AI/ML, business analytics, healthcare, finance, education, etc.</li>
+          <li>Supports predictive analysis.</li>
+        </ul>
+
+        <div class="diagram">
+Raw Data → Cleaning → Analysis → Visualization → Decision Making
+        </div>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. What charts can represent relationships?</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Chart</th>
+            <th>Use Case</th>
+          </tr>
+          <tr>
+            <td>Scatter Plot</td>
+            <td>Relationship between advertising and sales</td>
+          </tr>
+          <tr>
+            <td>Bubble Chart</td>
+            <td>Population vs GDP vs Area</td>
+          </tr>
+          <tr>
+            <td>Heatmap</td>
+            <td>Correlation matrix</td>
+          </tr>
+          <tr>
+            <td>Line Chart</td>
+            <td>Temperature change over time</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Benefits of Data Visualization</h3>
+      <div class="answer">
+        <ul>
+          <li>Quick understanding of large datasets</li>
+          <li>Easy communication of insights</li>
+          <li>Improves productivity</li>
+          <li>Supports strategic planning</li>
+          <li>Detects anomalies and outliers</li>
+          <li>Interactive dashboards improve user experience</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Categories of Graphs</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Examples</th>
+          </tr>
+          <tr>
+            <td>Comparison</td>
+            <td>Bar Chart, Column Chart</td>
+          </tr>
+          <tr>
+            <td>Distribution</td>
+            <td>Histogram, Box Plot</td>
+          </tr>
+          <tr>
+            <td>Relationship</td>
+            <td>Scatter Plot, Bubble Chart</td>
+          </tr>
+          <tr>
+            <td>Composition</td>
+            <td>Pie Chart, Stacked Bar Chart</td>
+          </tr>
+          <tr>
+            <td>Time Series</td>
+            <td>Line Graph, Area Chart</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Graphs for Part-to-Whole Relationships</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Pie Chart:</strong> Shows percentage contribution.</li>
+          <li><strong>Donut Chart:</strong> Similar to pie chart but modern style.</li>
+          <li><strong>Stacked Bar Chart:</strong> Comparison and composition together.</li>
+          <li><strong>Treemap:</strong> Hierarchical part-to-whole relationship.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Visualizations for Flows and Processes</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Visualization</th>
+            <th>Application</th>
+          </tr>
+          <tr>
+            <td>Flowchart</td>
+            <td>Algorithm design</td>
+          </tr>
+          <tr>
+            <td>Sankey Diagram</td>
+            <td>Energy transfer</td>
+          </tr>
+          <tr>
+            <td>Process Map</td>
+            <td>Business workflow</td>
+          </tr>
+          <tr>
+            <td>Network Diagram</td>
+            <td>Social network analysis</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Charts for Data Distribution</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Histogram:</strong> Frequency distribution.</li>
+          <li><strong>KDE Plot:</strong> Smooth probability density curve.</li>
+          <li><strong>Box Plot:</strong> Median, quartiles, outliers.</li>
+          <li><strong>Violin Plot:</strong> Distribution + density.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Graphs for Comparing Values</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Graph</th>
+            <th>Advantages</th>
+            <th>Disadvantages</th>
+          </tr>
+          <tr>
+            <td>Bar Chart</td>
+            <td>Simple and clear</td>
+            <td>Limited for large datasets</td>
+          </tr>
+          <tr>
+            <td>Column Chart</td>
+            <td>Good for time comparison</td>
+            <td>Can become cluttered</td>
+          </tr>
+          <tr>
+            <td>Radar Chart</td>
+            <td>Multi-variable comparison</td>
+            <td>Difficult interpretation</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. Visualizations for Relationships</h3>
+      <div class="answer">
+        <ul>
+          <li>Scatter Plot</li>
+          <li>Bubble Chart</li>
+          <li>Heatmap</li>
+          <li>3D Scatter Plot</li>
+        </ul>
+        <p>These help identify correlation, clusters, and trends.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Graphs for Time-based Changes</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Graph</th>
+            <th>Characteristics</th>
+          </tr>
+          <tr>
+            <td>Line Chart</td>
+            <td>Continuous trends over time</td>
+          </tr>
+          <tr>
+            <td>Area Chart</td>
+            <td>Shows cumulative totals</td>
+          </tr>
+          <tr>
+            <td>Timeline Chart</td>
+            <td>Sequence of events</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Common Data Visualization Libraries</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Library</th>
+            <th>Features</th>
+          </tr>
+          <tr>
+            <td>Matplotlib</td>
+            <td>Basic and highly customizable plots</td>
+          </tr>
+          <tr>
+            <td>Seaborn</td>
+            <td>Statistical visualization with beautiful themes</td>
+          </tr>
+          <tr>
+            <td>Plotly</td>
+            <td>Interactive visualizations</td>
+          </tr>
+          <tr>
+            <td>Bokeh</td>
+            <td>Web-based interactive plots</td>
+          </tr>
+        </table>
+
+        <h4>Matplotlib vs Seaborn</h4>
+        <table>
+          <tr>
+            <th>Matplotlib</th>
+            <th>Seaborn</th>
+          </tr>
+          <tr>
+            <td>Low-level plotting</td>
+            <td>High-level plotting</td>
+          </tr>
+          <tr>
+            <td>More customization</td>
+            <td>Better default styling</td>
+          </tr>
+          <tr>
+            <td>Complex syntax</td>
+            <td>Simpler syntax</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 2 – Matplotlib</h2>
+
+    <div class="question">
+      <h3>1. Company Revenue Over Years</h3>
+      <div class="answer">
+<pre><code>import matplotlib.pyplot as plt
+
+years = [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024]
+revenue = [5,7,8,10,12,14,15,18,20,22]
+
+plt.plot(years, revenue, 'r--', linewidth=2)
+plt.xlabel('Years')
+plt.ylabel('Revenue in Million Dollars')
+plt.title('Company Revenue Over Years')
+plt.grid(True)
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Difference between Bar Chart and Histogram</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Bar Chart</th>
+            <th>Histogram</th>
+          </tr>
+          <tr>
+            <td>Used for categorical data</td>
+            <td>Used for continuous numerical data</td>
+          </tr>
+          <tr>
+            <td>Bars separated by spaces</td>
+            <td>Bars touch each other</td>
+          </tr>
+          <tr>
+            <td>Compares categories</td>
+            <td>Shows distribution</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Histogram of Student Marks</h3>
+      <div class="answer">
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+marks = np.random.randint(0, 101, 50)
+
+plt.hist(marks, bins=10, color='skyblue', edgecolor='black')
+plt.xlabel('Marks Range')
+plt.ylabel('Number of Students')
+plt.title('Histogram of Student Marks')
+plt.grid(True)
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Scatter Plot for Advertising Budget vs Sales</h3>
+      <div class="answer">
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+budget = [10,20,30,40,50,60]
+sales = [15,25,35,45,55,70]
+
+plt.scatter(budget, sales, color='blue', marker='o')
+
+m, b = np.polyfit(budget, sales, 1)
+plt.plot(budget, m*np.array(budget)+b, color='red')
+
+plt.xlabel('Advertising Budget ($)')
+plt.ylabel('Sales Revenue ($)')
+plt.title('Advertising vs Sales')
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Pie Chart – Smartphone Market Share</h3>
+      <div class="answer">
+<pre><code>import matplotlib.pyplot as plt
+
+brands = ['Apple', 'Samsung', 'Xiaomi', 'Oppo']
+share = [35, 30, 20, 15]
+explode = [0.1, 0, 0, 0]
+colors = ['gold', 'lightblue', 'lightgreen', 'pink']
+
+plt.pie(share,
+        labels=brands,
+        autopct='%1.1f%%',
+        explode=explode,
+        colors=colors)
+
+plt.title('Smartphone Market Share 2024')
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Box Plot for Monthly Temperature</h3>
+      <div class="answer">
+<pre><code>import matplotlib.pyplot as plt
+
+temp = [22,24,26,28,30,35,37,36,33,29,25,23]
+
+plt.boxplot(temp)
+plt.title('Monthly Temperature Analysis')
+plt.ylabel('Temperature')
+plt.show()</code></pre>
+
+        <p><strong>Use of Box Plot:</strong> Detects outliers, median, quartiles, and spread of data.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Main Plot and Inset Plot</h3>
+      <div class="answer">
+<pre><code>import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5]
+y = [2,4,6,8,10]
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+
+ax_inset = fig.add_axes([0.6,0.5,0.25,0.25])
+ax_inset.plot(x, y, 'r')
+
+plt.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Factors for Selecting Time Scale</h3>
+      <div class="answer">
+        <ul>
+          <li>Nature of data</li>
+          <li>Frequency of observations</li>
+          <li>Trend visibility</li>
+          <li>Level of detail required</li>
+          <li>Audience understanding</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Purpose of fill_between()</h3>
+      <div class="answer">
+        <p>The <span class="highlight">fill_between()</span> function fills the area between two curves or between a curve and axis.</p>
+
+<pre><code>plt.fill_between(x, y, color='skyblue', alpha=0.5)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Create Subplot with 5 Rows and 3 Columns</h3>
+      <div class="answer">
+<pre><code>fig, axes = plt.subplots(5, 3, figsize=(15,10))</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. Function Used to Save Graph</h3>
+      <div class="answer">
+<pre><code>plt.savefig('graph.png')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Difference between Stacked Bar Chart and Normal Bar Chart</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Normal Bar Chart</th>
+            <th>Stacked Bar Chart</th>
+          </tr>
+          <tr>
+            <td>Shows independent categories</td>
+            <td>Shows composition within categories</td>
+          </tr>
+          <tr>
+            <td>Easy comparison</td>
+            <td>Shows total and contribution together</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. Why use dropna() in Histogram?</h3>
+      <div class="answer">
+        <p><strong>dropna()</strong> removes missing values from data before plotting so the histogram is accurate and error-free.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. Handling Missing Data in Visualization</h3>
+      <div class="answer">
+        <ul>
+          <li>Removing missing values using dropna()</li>
+          <li>Replacing with mean/median</li>
+          <li>Interpolation</li>
+          <li>Using special indicators</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. Role of bins=10 in Histogram</h3>
+      <div class="answer">
+        <p>It divides the data into 10 intervals or groups for frequency analysis.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. Why use value_counts() before Pie Chart?</h3>
+      <div class="answer">
+        <p>It counts occurrences of each category so the pie chart can display proportions correctly.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. Meaning of autopct='%1.1f%%'</h3>
+      <div class="answer">
+        <p>Displays percentage values on pie chart with one decimal place.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>19. Purpose of figsize=(12,5)</h3>
+      <div class="answer">
+        <p>Sets figure width = 12 inches and height = 5 inches.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>20. Why use tight_layout()?</h3>
+      <div class="answer">
+        <p>Automatically adjusts spacing between subplots to avoid overlapping.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>21. Meaning of alpha=0.5</h3>
+      <div class="answer">
+        <p>Controls transparency. 0 = fully transparent, 1 = fully opaque.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>22. Code for sharex and twinx</h3>
+      <div class="answer">
+<pre><code>fig, ax1 = plt.subplots()
+
+ax1.plot([1,2,3], [4,5,6], color='blue')
+
+ax2 = ax1.twinx()
+ax2.plot([1,2,3], [10,20,30], color='red')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>23. Role of Locators and Formatters</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Locators:</strong> Decide tick positions.</li>
+          <li><strong>Formatters:</strong> Format tick labels.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>24. Purpose of autofmt_xdate()</h3>
+      <div class="answer">
+        <p>Rotates and formats date labels automatically for better readability.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 3 – Seaborn</h2>
+
+    <div class="question">
+      <h3>1. Default chart for relational plot</h3>
+      <div class="answer">
+        <p>The default chart for <strong>relplot()</strong> is a scatter plot.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Effect of hue in relational line chart</h3>
+      <div class="answer">
+        <p>The <strong>hue</strong> parameter separates data into categories using different colors.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Heatmap vs Cluster Map</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Heatmap</th>
+            <th>Cluster Map</th>
+          </tr>
+          <tr>
+            <td>Displays matrix values with colors</td>
+            <td>Groups similar rows/columns</td>
+          </tr>
+          <tr>
+            <td>Correlation matrix</td>
+            <td>Gene analysis</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Jointplot vs Pairplot</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Jointplot:</strong> Relationship between two variables.</li>
+          <li><strong>Pairplot:</strong> Relationship among multiple variables.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. errorbar=sd in line chart</h3>
+      <div class="answer">
+        <p>Displays standard deviation as error bars around the mean.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Role of orient parameter</h3>
+      <div class="answer">
+        <p>Controls horizontal or vertical orientation of plots.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Effect of size in scatter plot</h3>
+      <div class="answer">
+        <p>Changes marker size to represent importance or magnitude.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Function of sizes in scatter plot</h3>
+      <div class="answer">
+        <p>Maps variable values to marker sizes.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. FacetGrid for Multiple Subplots</h3>
+      <div class="answer">
+<pre><code>g = sns.FacetGrid(tips, col='time')
+g.map(sns.scatterplot, 'total_bill', 'tip')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Meaning of stat='probability'</h3>
+      <div class="answer">
+        <p>Displays probabilities instead of frequencies in histogram.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Default kind in catplot()</h3>
+      <div class="answer">
+        <p>The default kind is <strong>strip</strong>.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. stripplot() vs swarmplot()</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>stripplot()</th>
+            <th>swarmplot()</th>
+          </tr>
+          <tr>
+            <td>May overlap points</td>
+            <td>Avoids overlapping</td>
+          </tr>
+          <tr>
+            <td>Faster</td>
+            <td>Better readability</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. dodge parameter in swarmplot()</h3>
+      <div class="answer">
+        <p>Separates categories side-by-side when hue is used.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. boxenplot() vs boxplot()</h3>
+      <div class="answer">
+        <p>Use <strong>boxenplot()</strong> for large datasets because it shows more distribution detail.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. logistic=True in regplot()</h3>
+      <div class="answer">
+        <p>Fits logistic regression instead of linear regression.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. sharex=False and sharey=False</h3>
+      <div class="answer">
+        <p>Allows each subplot to have independent axes.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. estimator=None in relplot()</h3>
+      <div class="answer">
+        <p>Plots raw data instead of aggregated values.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. common_norm=False</h3>
+      <div class="answer">
+        <p>Each distribution is normalized independently.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>19. bw_adjust=0.25 in displot()</h3>
+      <div class="answer">
+        <p>Controls smoothness of KDE curve. Lower value = sharper curve.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>20. order parameter in catplot()</h3>
+      <div class="answer">
+        <p>Defines custom category order.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>21. hue, style, dashes, marker in relational line chart</h3>
+      <div class="answer">
+<pre><code>sns.relplot(
+    data=fmri,
+    x='timepoint',
+    y='signal',
+    hue='region',
+    style='event',
+    dashes=True,
+    markers=True,
+    kind='line'
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>22. Distribution Visualization Methods</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Histogram:</strong> Frequency distribution</li>
+          <li><strong>KDE Plot:</strong> Probability density</li>
+          <li><strong>Box Plot:</strong> Spread and outliers</li>
+        </ul>
+
+<pre><code>sns.histplot(data)
+sns.kdeplot(data)
+sns.boxplot(data)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>23. Regression Plots in Predictive Analysis</h3>
+      <div class="answer">
+        <p>Regression plots show relationship and trend between variables.</p>
+
+        <h4>Key Parameters:</h4>
+        <ul>
+          <li>ci – confidence interval</li>
+          <li>order – polynomial degree</li>
+          <li>logistic – logistic regression</li>
+          <li>robust – robust regression</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>24. Types of Categorical Plots</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Plot</th>
+            <th>Purpose</th>
+          </tr>
+          <tr>
+            <td>stripplot</td>
+            <td>Scatter for categories</td>
+          </tr>
+          <tr>
+            <td>swarmplot</td>
+            <td>Non-overlapping categorical scatter</td>
+          </tr>
+          <tr>
+            <td>boxplot</td>
+            <td>Statistical summary</td>
+          </tr>
+          <tr>
+            <td>violinplot</td>
+            <td>Distribution + density</td>
+          </tr>
+          <tr>
+            <td>barplot</td>
+            <td>Aggregate comparison</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>25. Relational Line Plot using fmri Dataset</h3>
+      <div class="answer">
+<pre><code>sns.relplot(
+    data=fmri,
+    x='timepoint',
+    y='signal',
+    kind='line',
+    errorbar='sd'
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>26. Seaborn Code</h3>
+      <div class="answer">
+<pre><code>sns.displot(tips, x='size', bins=[1,2,3,4,5,6,7])</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>27. Penguins Dataset Code</h3>
+      <div class="answer">
+<pre><code>sns.displot(
+    penguins,
+    x='flipper_length_mm',
+    hue='species',
+    multiple='stack'
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>28. Effect of jitter in stripplot()</h3>
+      <div class="answer">
+        <p>Jitter spreads points slightly to avoid overlap.</p>
+
+<pre><code>sns.stripplot(data=tips, x='day', y='total_bill', jitter=True)
+
+sns.stripplot(data=tips, x='day', y='total_bill', jitter=0.4)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>29. catplot() without jitter</h3>
+      <div class="answer">
+<pre><code>sns.catplot(
+    data=tips,
+    x='day',
+    y='total_bill',
+    jitter=False
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>30. Relationship between smoker and tip</h3>
+      <div class="answer">
+<pre><code>sns.catplot(
+    data=tips,
+    x='smoker',
+    y='tip',
+    order=['No', 'Yes']
+)</code></pre>
+
+        <p><strong>Explanation:</strong> order parameter ensures No appears before Yes.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 4 – Plotly</h2>
+
+    <div class="question">
+      <h3>1. Primary use of Violin Plot in Plotly</h3>
+      <div class="answer">
+        <p>Shows data distribution and probability density together.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Enable Hover Tooltips</h3>
+      <div class="answer">
+<pre><code>fig.update_traces(hoverinfo='x+y')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Best chart for part-to-whole relationship</h3>
+      <div class="answer">
+        <p>Pie Chart or Donut Chart.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Purpose of update_layout()</h3>
+      <div class="answer">
+        <p>Used to customize titles, axes, themes, legends, and chart appearance.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Export Plotly Graph as PNG</h3>
+      <div class="answer">
+<pre><code>fig.write_image('plot.png')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Bar Chart vs Histogram</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Bar Chart</th>
+            <th>Histogram</th>
+          </tr>
+          <tr>
+            <td>Categorical data</td>
+            <td>Continuous data</td>
+          </tr>
+          <tr>
+            <td>Separated bars</td>
+            <td>Connected bins</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Feature allowing zooming and panning</h3>
+      <div class="answer">
+        <p>Interactive toolbar and drag mode.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. What does 3D scatter plot represent?</h3>
+      <div class="answer">
+        <p>Relationship among three numerical variables in 3D space.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. Add title to Plotly figure</h3>
+      <div class="answer">
+<pre><code>fig.update_layout(title='Sales Analysis')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Use of dropdown menu</h3>
+      <div class="answer">
+        <p>Allows filtering or changing chart interactively.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Box Plot vs Violin Plot</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Box Plot</th>
+            <th>Violin Plot</th>
+          </tr>
+          <tr>
+            <td>Statistical summary</td>
+            <td>Distribution + density</td>
+          </tr>
+          <tr>
+            <td>Simple</td>
+            <td>More detailed</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. Change marker colors in scatter plot</h3>
+      <div class="answer">
+<pre><code>fig.update_traces(marker=dict(color='red'))</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Basic Line Chart in Plotly</h3>
+      <div class="answer">
+<pre><code>import plotly.express as px
+
+fig = px.line(x=[1,2,3], y=[4,5,6])
+fig.show()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. Use of Sliders</h3>
+      <div class="answer">
+        <p>Sliders help visualize data changes over time interactively.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. Toggle traces using legend</h3>
+      <div class="answer">
+        <p>Clicking legend items hides/shows traces.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. Add Axis Labels</h3>
+      <div class="answer">
+<pre><code>fig.update_layout(
+    xaxis_title='Products',
+    yaxis_title='Sales'
+)</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. Purpose of restyle Method</h3>
+      <div class="answer">
+        <p>Used to dynamically modify traces using buttons.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. Pie Chart with Custom Hover Text</h3>
+      <div class="answer">
+<pre><code>fig = px.pie(values=[10,20], names=['A','B'])
+fig.update_traces(textinfo='percent+label')</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>19. Filter Data using Dropdown</h3>
+      <div class="answer">
+        <p>Dropdown menus use buttons and visibility options to filter traces.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>20. Animate Plotly Chart using Frames</h3>
+      <div class="answer">
+<pre><code>fig = px.scatter(data, x='x', y='y', animation_frame='year')</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 5 – Power BI</h2>
+
+    <div class="question">
+      <h3>1. Default chart type in Power BI</h3>
+      <div class="answer">
+        <p>Clustered Column Chart.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Types of Column Charts</h3>
+      <div class="answer">
+        <ul>
+          <li>Clustered Column Chart</li>
+          <li>Stacked Column Chart</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Best visual for comparing parts of whole</h3>
+      <div class="answer">
+        <p>Pie Chart or Donut Chart.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Use of KPI Visual</h3>
+      <div class="answer">
+        <p>Displays business performance indicators like sales growth and profit targets.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Add Title to Power BI Visual</h3>
+      <div class="answer">
+        <p>Format Pane → Title → ON → Enter Title.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Purpose of Slicer</h3>
+      <div class="answer">
+        <p>Filters data interactively in reports.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Visual for Hierarchical Data Exploration</h3>
+      <div class="answer">
+        <p>Decomposition Tree.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Bar Chart vs Column Chart</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Bar Chart</th>
+            <th>Column Chart</th>
+          </tr>
+          <tr>
+            <td>Horizontal bars</td>
+            <td>Vertical bars</td>
+          </tr>
+          <tr>
+            <td>Long category names</td>
+            <td>Time-series comparison</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. Imported Visual Example</h3>
+      <div class="answer">
+        <p>Drill Down Donut Chart.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Use of M Language</h3>
+      <div class="answer">
+        <p>Used in Power Query for data transformation and cleaning.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. DAX Function for YTD</h3>
+      <div class="answer">
+<pre><code>TOTALYTD()</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. COUNT vs COUNTROWS</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>COUNT</th>
+            <th>COUNTROWS</th>
+          </tr>
+          <tr>
+            <td>Counts non-empty values in column</td>
+            <td>Counts table rows</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Remove Duplicates in Power Query</h3>
+      <div class="answer">
+        <p>Home → Remove Rows → Remove Duplicates.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. Purpose of Unpivot</h3>
+      <div class="answer">
+        <p>Converts columns into rows for better analysis.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. Power BI File Extension</h3>
+      <div class="answer">
+        <p>.pbix</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. Clustered vs Stacked Bar Chart</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Clustered</th>
+            <th>Stacked</th>
+          </tr>
+          <tr>
+            <td>Side-by-side comparison</td>
+            <td>Composition + comparison</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. Customize Tooltips</h3>
+      <div class="answer">
+        <p>Add fields to Tooltip section in visualization pane.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. Bookmarks in Power BI</h3>
+      <div class="answer">
+        <p>Bookmarks save report view states for navigation and storytelling.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>19. Use of Decomposition Tree</h3>
+      <div class="answer">
+        <p>Analyzes root causes by drilling into dimensions.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>20. Create Hierarchy in Power BI</h3>
+      <div class="answer">
+        <p>Right-click field → Create Hierarchy.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>21. Measure vs Calculated Column</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Measure</th>
+            <th>Calculated Column</th>
+          </tr>
+          <tr>
+            <td>Calculated dynamically</td>
+            <td>Stored in table</td>
+          </tr>
+          <tr>
+            <td>Used for aggregation</td>
+            <td>Used row-wise</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>22. DAX Formula for Average Sales</h3>
+      <div class="answer">
+<pre><code>Average Sales = AVERAGE(Sales[Amount])</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>23. Handling Missing Values in Power Query</h3>
+      <div class="answer">
+        <ul>
+          <li>Replace values</li>
+          <li>Remove null rows</li>
+          <li>Fill up/down</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>24. Purpose of Group By</h3>
+      <div class="answer">
+        <p>Aggregates rows based on selected columns.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>25. Publish Report to Power BI Service</h3>
+      <div class="answer">
+        <p>Home → Publish → Select Workspace.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>26. Create Relationship between Tables</h3>
+      <div class="answer">
+        <p>Model View → Drag matching fields between tables.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>27. Apply Conditional Formatting</h3>
+      <div class="answer">
+        <ol>
+          <li>Select visual</li>
+          <li>Format Pane</li>
+          <li>Conditional Formatting</li>
+          <li>Choose rules/colors</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>28. Use of Q&A Visual</h3>
+      <div class="answer">
+        <p>Allows asking questions in natural language.</p>
+
+        <p><strong>Example:</strong> “Show total sales by region”.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>29. DAX for Month-over-Month Growth</h3>
+      <div class="answer">
+<pre><code>MoM Growth =
+([Current Month Sales] - [Previous Month Sales])
+/ [Previous Month Sales]</code></pre>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>30. SUM() vs SUMX()</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>SUM()</th>
+            <th>SUMX()</th>
+          </tr>
+          <tr>
+            <td>Adds column values directly</td>
+            <td>Evaluates expression row-wise</td>
+          </tr>
+        </table>
+
+<pre><code>SUM(Sales[Amount])
+
+SUMX(Sales, Sales[Quantity] * Sales[Price])</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 6 – Google Looker Studio</h2>
+
+    <div class="question">
+      <h3>1. What is a Data Source?</h3>
+      <div class="answer">
+        <p>A data source is the connection between Looker Studio and external data such as Google Sheets, SQL databases, or BigQuery.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2. Connect Google Sheet to Looker Studio</h3>
+      <div class="answer">
+        <ol>
+          <li>Open Looker Studio</li>
+          <li>Create Report</li>
+          <li>Select Google Sheets Connector</li>
+          <li>Choose Sheet</li>
+          <li>Connect and Add to Report</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3. Two Data Connectors</h3>
+      <div class="answer">
+        <ul>
+          <li>Google Sheets</li>
+          <li>BigQuery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4. Editing Schema of Google Sheet</h3>
+      <div class="answer">
+        <p>Looker Studio updates fields and data types after refreshing schema.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5. Role of Dimensions and Metrics</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Dimension</th>
+            <th>Metric</th>
+          </tr>
+          <tr>
+            <td>Qualitative data</td>
+            <td>Numerical values</td>
+          </tr>
+          <tr>
+            <td>Example: Country</td>
+            <td>Example: Sales</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6. Four Chart Types</h3>
+      <div class="answer">
+        <ul>
+          <li>Bar Chart</li>
+          <li>Pie Chart</li>
+          <li>Line Chart</li>
+          <li>Geo Map</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7. Chart for Trends Over Time</h3>
+      <div class="answer">
+        <p>Time Series Chart or Line Chart.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8. Table vs Scorecard</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Table</th>
+            <th>Scorecard</th>
+          </tr>
+          <tr>
+            <td>Displays detailed records</td>
+            <td>Displays single KPI value</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>9. Pie Chart vs Bar Chart</h3>
+      <div class="answer">
+        <ul>
+          <li>Pie Chart → Part-to-whole relationships</li>
+          <li>Bar Chart → Compare categories</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>10. Use of Time Series Chart</h3>
+      <div class="answer">
+        <p>Displays trends, growth, and seasonal patterns over time.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>11. Purpose of Drop-down List Control</h3>
+      <div class="answer">
+        <p>Allows users to filter report data interactively.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>12. Three Filter Controls</h3>
+      <div class="answer">
+        <ul>
+          <li>Date Range Control</li>
+          <li>Drop-down List</li>
+          <li>Checkbox Control</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>13. Date Range Control</h3>
+      <div class="answer">
+        <p>Filters report visuals based on selected dates.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>14. Use of Input Box Control</h3>
+      <div class="answer">
+        <p>Allows users to enter custom filter values.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>15. Fixed-size List vs Drop-down List</h3>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Fixed-size List</th>
+            <th>Drop-down List</th>
+          </tr>
+          <tr>
+            <td>Always visible</td>
+            <td>Expandable menu</td>
+          </tr>
+          <tr>
+            <td>Consumes more space</td>
+            <td>Compact design</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>16. What is Data Control?</h3>
+      <div class="answer">
+        <p>Allows users to switch between different data sources dynamically.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>17. Use of Checkbox Control</h3>
+      <div class="answer">
+        <p>Allows enabling/disabling filter conditions.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>18. Use of Button Control</h3>
+      <div class="answer">
+        <p>Used for navigation and interactive report actions.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>19. Dimension Control</h3>
+      <div class="answer">
+        <p>Allows users to dynamically change dimensions in charts.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>20. Advanced Filter</h3>
+      <div class="answer">
+        <p>An advanced filter uses conditions and logical expressions for precise filtering.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <h3>Prepared for Semester VI ICT & CSE – Data Visualization</h3>
+  <p>Comprehensive Notes + Question Bank Solutions + Syntax + Examples</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Visualization — Complete Study Material | Adani University</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+  :root{
+    --bg:#0d1117;--surface:#13181f;--card:#1a2030;--border:#222e48;
+    --gold:#e8b84b;--blue:#5b9cf6;--green:#7ee8a2;--red:#f78080;--purple:#c084fc;--cyan:#67e8f9;
+    --text:#e2e8f4;--muted:#7a8aaa;--hl:rgba(232,184,75,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);font-size:15.5px;line-height:1.8;display:flex}
+
+  /* SIDEBAR */
+  #sb{width:265px;min-height:100vh;background:var(--surface);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100}
+  .sb-head{padding:18px 16px 12px;border-bottom:1px solid var(--border)}
+  .sb-head h2{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold)}
+  .sb-head p{font-size:.68rem;color:var(--muted);margin-top:2px}
+  .sb-sec{padding:11px 16px 3px;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  .sb-a{display:block;padding:6px 16px;font-size:.79rem;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .18s}
+  .sb-a:hover,.sb-a.act{background:var(--hl);border-left-color:var(--gold);color:var(--gold)}
+  .sb-sub{display:block;padding:4px 16px 4px 28px;font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .18s}
+  .sb-sub:hover{color:var(--cyan)}
+
+  /* MAIN */
+  #main{margin-left:265px;flex:1}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0d1117 0%,#0d2040 50%,#0d1117 100%);padding:48px 52px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+  .hero::before{content:'DV';position:absolute;right:30px;top:-20px;font-family:'Playfair Display',serif;font-size:14rem;font-weight:900;color:rgba(91,156,246,.04);user-select:none}
+  .hero-tag{display:inline-block;background:rgba(91,156,246,.12);border:1px solid rgba(91,156,246,.3);color:var(--blue);padding:3px 13px;border-radius:20px;font-size:.7rem;font-family:'JetBrains Mono',monospace;letter-spacing:1px;margin-bottom:12px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff;line-height:1.2}
+  .hero h1 span{color:var(--blue)}
+  .meta{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+  .mi{font-size:.8rem;color:var(--muted)} .mi strong{color:var(--text)}
+  .wt-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .wt{font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:3px 10px;border-radius:12px;border:1px solid var(--border);color:var(--muted)}
+
+  /* CONTENT */
+  #ct{padding:0 52px 80px}
+
+  /* UNIT HEADER */
+  .uhead{margin-top:48px;padding:20px 26px;background:var(--card);border:1px solid var(--border);border-radius:12px;border-left:4px solid var(--blue);display:flex;align-items:flex-start;gap:16px}
+  .utag{font-family:'JetBrains Mono',monospace;font-size:.62rem;background:rgba(91,156,246,.1);color:var(--blue);padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:3px}
+  .uhead h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;line-height:1.25}
+  .uhead p{color:var(--muted);font-size:.84rem;margin-top:3px}
+
+  /* SECTION */
+  section{margin-top:28px}
+  .stitle{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+  .pill{font-family:'JetBrains Mono',monospace;font-size:.6rem;background:rgba(91,156,246,.15);color:var(--blue);padding:2px 8px;border-radius:4px;letter-spacing:1px}
+  .pill.g{background:rgba(126,232,162,.15);color:var(--green)}
+  .pill.r{background:rgba(247,128,128,.15);color:var(--red)}
+
+  h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:#c8d6f8;margin:18px 0 7px}
+  h4{font-size:.9rem;color:var(--green);margin:14px 0 5px;font-style:italic;font-weight:600}
+  p{margin-bottom:10px;color:var(--text)}
+  ul,ol{padding-left:20px;margin-bottom:10px}
+  li{margin-bottom:5px;color:var(--text)}
+  li strong{color:var(--gold)}
+  strong{color:var(--gold)}
+
+  /* CODE */
+  .code-block{background:#0a0e17;border:1px solid var(--border);border-radius:10px;margin:12px 0;overflow:hidden}
+  .code-head{background:rgba(91,156,246,.08);padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--blue);letter-spacing:1px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  pre{padding:16px 18px;overflow-x:auto;font-size:.82rem;line-height:1.65}
+  code{font-family:'JetBrains Mono',monospace;color:#e2e8f4}
+  .kw{color:var(--blue)} .fn{color:var(--cyan)} .st{color:var(--green)}
+  .cm{color:var(--muted);font-style:italic} .nu{color:var(--red)}
+  .ic{color:var(--purple)} .at{color:var(--gold)}
+  code.inline{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,.07);padding:2px 6px;border-radius:4px;font-size:.82em;color:var(--cyan)}
+
+  /* BOXES */
+  .box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:10px 0;font-size:.89rem}
+  .box.gold{border-left:3px solid var(--gold)}
+  .box.blue{border-left:3px solid var(--blue)}
+  .box.green{border-left:3px solid var(--green)}
+  .box.red{border-left:3px solid var(--red)}
+  .box.cyan{border-left:3px solid var(--cyan)}
+  .lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1px;margin-bottom:5px;text-transform:uppercase}
+  .box.gold .lbl{color:var(--gold)} .box.blue .lbl{color:var(--blue)}
+  .box.green .lbl{color:var(--green)} .box.red .lbl{color:var(--red)}
+  .box.cyan .lbl{color:var(--cyan)}
+
+  /* TABLE */
+  .tw{overflow-x:auto;margin:12px 0}
+  table{width:100%;border-collapse:collapse;font-size:.83rem}
+  th{background:rgba(91,156,246,.1);color:var(--blue);padding:8px 13px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.68rem;border-bottom:2px solid var(--border)}
+  td{padding:7px 13px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+  tr:hover td{background:var(--hl)}
+
+  /* GRID */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+  .gc{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+  .gc h5{color:var(--blue);font-size:.86rem;margin-bottom:5px}
+  .gc p,.gc ul{font-size:.81rem;color:var(--muted);margin:0}
+  .gc ul{padding-left:14px}
+
+  /* KEY POINT */
+  .kp{display:flex;gap:10px;background:rgba(232,184,75,.06);border:1px solid rgba(232,184,75,.18);border-radius:7px;padding:9px 13px;margin:8px 0;font-size:.86rem}
+  .kp::before{content:'✦';color:var(--gold);flex-shrink:0;line-height:1.8}
+
+  /* DIAGRAM */
+  .diag{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0;overflow-x:auto}
+  .dtitle{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);text-align:center;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+
+  /* CHART TYPE CARDS */
+  .chart-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0}
+  .chart-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:14px;transition:border-color .2s}
+  .chart-card:hover{border-color:var(--blue)}
+  .chart-icon{font-size:1.6rem;margin-bottom:6px}
+  .chart-card h5{color:var(--cyan);font-size:.85rem;margin-bottom:4px}
+  .chart-card p{font-size:.78rem;color:var(--muted);margin:0}
+
+  ::-webkit-scrollbar{width:5px;height:5px}
+  ::-webkit-scrollbar-track{background:var(--surface)}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+  @media(max-width:860px){#sb{display:none}#main{margin-left:0}#ct{padding:0 16px 60px}.hero{padding:28px 16px}.g2,.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sb">
+  <div class="sb-head">
+    <h2>Data Visualization</h2>
+    <p>BTech CSE · 6th Sem · Dr. Nikita Joshi</p>
+  </div>
+  <div class="sb-sec">Unit 1 — Intro · 10%</div>
+  <a class="sb-a" href="#u1">Introduction to Data Viz</a>
+  <a class="sb-sub" href="#u1-cats">Chart Categories</a>
+  <a class="sb-sub" href="#u1-libs">Python Libraries</a>
+
+  <div class="sb-sec">Unit 2 — Matplotlib · 22%</div>
+  <a class="sb-a" href="#u2">Matplotlib</a>
+  <a class="sb-sub" href="#u2-line">Line & Scatter Plots</a>
+  <a class="sb-sub" href="#u2-bar">Bar & Histogram</a>
+  <a class="sb-sub" href="#u2-pie">Pie & Box Plots</a>
+  <a class="sb-sub" href="#u2-sub">Subplots & Customization</a>
+  <a class="sb-sub" href="#u2-datetime">Date-Time Data</a>
+  <a class="sb-sub" href="#u2-qb">QB Quick Answers</a>
+
+  <div class="sb-sec">Unit 3a — Seaborn · 20%</div>
+  <a class="sb-a" href="#u3s">Seaborn</a>
+  <a class="sb-sub" href="#u3s-rel">Relational Plots</a>
+  <a class="sb-sub" href="#u3s-dist">Distribution Plots</a>
+  <a class="sb-sub" href="#u3s-cat">Categorical Plots</a>
+  <a class="sb-sub" href="#u3s-heat">Heatmap & Clustermap</a>
+  <a class="sb-sub" href="#u3s-facet">FacetGrid</a>
+  <a class="sb-sub" href="#u3s-qb">QB Quick Answers</a>
+
+  <div class="sb-sec">Unit 3b — Plotly · 18%</div>
+  <a class="sb-a" href="#u3p">Plotly</a>
+  <a class="sb-sub" href="#u3p-basic">Basic Charts</a>
+  <a class="sb-sub" href="#u3p-inter">Interactivity</a>
+  <a class="sb-sub" href="#u3p-qb">QB Quick Answers</a>
+
+  <div class="sb-sec">Unit 4 — Power BI · 20%</div>
+  <a class="sb-a" href="#u4">Power BI</a>
+  <a class="sb-sub" href="#u4-pq">Power Query</a>
+  <a class="sb-sub" href="#u4-model">Data Modeling</a>
+  <a class="sb-sub" href="#u4-dax">DAX Functions</a>
+  <a class="sb-sub" href="#u4-viz">Visualizations</a>
+  <a class="sb-sub" href="#u4-dash">Dashboards</a>
+
+  <div class="sb-sec">Unit 5 — Looker Studio · 10%</div>
+  <a class="sb-a" href="#u5">Google Looker Studio</a>
+  <a class="sb-sub" href="#u5-ds">Data Sources</a>
+  <a class="sb-sub" href="#u5-charts">Charts & Controls</a>
+  <a class="sb-sub" href="#u5-dash">Dashboards</a>
+</nav>
+
+<!-- MAIN -->
+<div id="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">COMPLETE EXAM STUDY GUIDE</div>
+  <h1>Data <span>Visualization</span><br>Study Material</h1>
+  <div class="meta">
+    <div class="mi"><strong>Faculty:</strong> Dr. Nikita Joshi</div>
+    <div class="mi"><strong>Semester:</strong> BTech CSE – VI</div>
+    <div class="mi"><strong>Credits:</strong> 3-0-0</div>
+    <div class="mi"><strong>University:</strong> Adani University</div>
+  </div>
+  <div class="wt-row">
+    <span class="wt">Intro: 10%</span>
+    <span class="wt">Matplotlib: 22%</span>
+    <span class="wt">Seaborn: 20%</span>
+    <span class="wt">Plotly: 18%</span>
+    <span class="wt">Power BI: 20%</span>
+    <span class="wt">Looker Studio: 10%</span>
+  </div>
+</div>
+
+<div id="ct">
+
+<!-- ═══ UNIT 1 ═══ -->
+<div id="u1" class="uhead">
+  <div class="utag">UNIT 1 · 4 HRS · 10%</div>
+  <div>
+    <h2>Introduction to Data Visualization</h2>
+    <p>Principles · Importance · Python Libraries Overview</p>
+  </div>
+</div>
+
+<section>
+  <div class="stitle">What is Data Visualization?</div>
+  <p><strong>Data Visualization</strong> is the graphical representation of information and data using visual elements like charts, graphs, maps, and dashboards to make data easier to understand, interpret, and communicate insights from.</p>
+
+  <div class="box gold">
+    <div class="lbl">Definition</div>
+    Data visualization is the process of translating large datasets and metrics into charts, graphs, and other visuals that are easier to process and understand. It uses the human visual cortex's pattern-recognition ability to find insights in data quickly.
+  </div>
+
+  <h3>Importance in Different Areas</h3>
+  <div class="g3">
+    <div class="gc"><h5>📊 Data Analytics</h5><p>Quickly identifies trends, outliers, and patterns in raw data. Speeds up the exploratory data analysis (EDA) process. Communicates findings to non-technical stakeholders effectively.</p></div>
+    <div class="gc"><h5>🧠 Data Science</h5><p>Validates model outputs and feature importance. Visualizes data distributions before ML training. Monitors model performance through dashboards and metrics tracking.</p></div>
+    <div class="gc"><h5>💼 Business Analytics</h5><p>Enables data-driven decision making at all levels. KPI dashboards give real-time business health overview. Uncovers business opportunities and risks through trend analysis.</p></div>
+  </div>
+
+  <h3>Benefits of Data Visualization</h3>
+  <ul>
+    <li><strong>Faster Comprehension:</strong> Human brain processes visuals 60,000× faster than text</li>
+    <li><strong>Pattern Recognition:</strong> Easily spot trends, correlations, and outliers</li>
+    <li><strong>Better Decision Making:</strong> Evidence-based decisions from clear visual data</li>
+    <li><strong>Storytelling:</strong> Data stories are more persuasive and memorable</li>
+    <li><strong>Accessibility:</strong> Complex data becomes understandable to all stakeholders</li>
+    <li><strong>Exploration:</strong> Interactive dashboards allow self-service data exploration</li>
+    <li><strong>Error Detection:</strong> Anomalies and dirty data become obvious visually</li>
+  </ul>
+</section>
+
+<section id="u1-cats">
+  <div class="stitle">Chart Categories & When to Use <span class="pill">QB FOCUS</span></div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-icon">📈</div>
+      <h5>Comparison</h5>
+      <p>Compare values between groups or over time.</p>
+      <p><strong>Charts:</strong> Bar, Column, Grouped Bar, Radar</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">🥧</div>
+      <h5>Part-to-Whole</h5>
+      <p>Show proportions of a total.</p>
+      <p><strong>Charts:</strong> Pie, Donut, Stacked Bar, Treemap, Waffle</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">🔗</div>
+      <h5>Relationship</h5>
+      <p>Show correlation between 2+ variables.</p>
+      <p><strong>Charts:</strong> Scatter Plot, Bubble Chart, Heatmap, Pair Plot</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">📉</div>
+      <h5>Distribution</h5>
+      <p>Show spread and shape of data.</p>
+      <p><strong>Charts:</strong> Histogram, Box Plot, Violin, KDE, Density</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">⏱️</div>
+      <h5>Time-Series / Trend</h5>
+      <p>Show changes over time.</p>
+      <p><strong>Charts:</strong> Line Chart, Area Chart, Sparkline, Candlestick</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">🌊</div>
+      <h5>Flow / Process</h5>
+      <p>Show movements and processes.</p>
+      <p><strong>Charts:</strong> Sankey, Funnel, Chord, Waterfall, Alluvial</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">🗺️</div>
+      <h5>Geospatial</h5>
+      <p>Show location-based data.</p>
+      <p><strong>Charts:</strong> Choropleth, Dot Map, Heat Map, Bubble Map</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-icon">🌳</div>
+      <h5>Hierarchical</h5>
+      <p>Show hierarchical structures.</p>
+      <p><strong>Charts:</strong> Treemap, Sunburst, Icicle, Dendrogram</p>
+    </div>
+  </div>
+
+  <h3>Chart by Data Type</h3>
+  <div class="tw"><table>
+    <tr><th>Data Type</th><th>Description</th><th>Best Charts</th></tr>
+    <tr><td><strong>Numerical / Continuous</strong></td><td>Height, temperature, price</td><td>Histogram, Box Plot, Scatter, Line</td></tr>
+    <tr><td><strong>Categorical / Nominal</strong></td><td>Color, brand, city</td><td>Bar Chart, Pie Chart, Treemap</td></tr>
+    <tr><td><strong>Ordinal</strong></td><td>Rating (1-5), satisfaction level</td><td>Bar Chart, Stacked Bar, Heatmap</td></tr>
+    <tr><td><strong>Time-Series</strong></td><td>Stock prices, monthly sales</td><td>Line Chart, Area Chart, Candlestick</td></tr>
+    <tr><td><strong>Multivariate</strong></td><td>Multiple variables at once</td><td>Pair Plot, Parallel Coordinates, 3D Scatter</td></tr>
+  </table></div>
+</section>
+
+<section id="u1-libs">
+  <div class="stitle">Popular Python Libraries Comparison <span class="pill">QB FOCUS</span></div>
+  <div class="tw"><table>
+    <tr><th>Feature</th><th>Matplotlib</th><th>Seaborn</th><th>Plotly</th></tr>
+    <tr><td>Type</td><td>Low-level static</td><td>High-level static (built on Matplotlib)</td><td>High-level interactive</td></tr>
+    <tr><td>Interactivity</td><td>❌ None</td><td>❌ None</td><td>✅ Full zoom, hover, click</td></tr>
+    <tr><td>Default Aesthetics</td><td>Basic</td><td>Beautiful built-in themes</td><td>Modern &amp; polished</td></tr>
+    <tr><td>Statistical Plots</td><td>Manual setup needed</td><td>✅ Built-in statistical support</td><td>Limited statistical</td></tr>
+    <tr><td>Learning Curve</td><td>Medium (complex API)</td><td>Easy (high-level functions)</td><td>Easy (Plotly Express)</td></tr>
+    <tr><td>Customization</td><td>✅ Maximum control</td><td>Good (via Matplotlib)</td><td>Good</td></tr>
+    <tr><td>Web Integration</td><td>Needs saving</td><td>Needs saving</td><td>✅ Native HTML/Web</td></tr>
+    <tr><td>Best For</td><td>Publication-quality static plots</td><td>Statistical analysis &amp; EDA</td><td>Dashboards &amp; web apps</td></tr>
+    <tr><td>Import</td><td><code class="inline">import matplotlib.pyplot as plt</code></td><td><code class="inline">import seaborn as sns</code></td><td><code class="inline">import plotly.express as px</code></td></tr>
+  </table></div>
+</section>
+
+<!-- ═══ UNIT 2 — MATPLOTLIB ═══ -->
+<div id="u2" class="uhead" style="border-left-color:var(--cyan)">
+  <div class="utag" style="color:var(--cyan);background:rgba(103,232,249,.1)">UNIT 2 · 6 HRS · 22%</div>
+  <div>
+    <h2>Data Visualization using Matplotlib</h2>
+    <p>Line · Scatter · Bar · Histogram · Pie · Box · Subplots · Date-Time</p>
+  </div>
+</div>
+
+<section id="u2-line">
+  <div class="stitle">Line Plot & Scatter Plot</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · LINE PLOT — COMPANY REVENUE</span><span style="color:var(--muted)">QB Q1</span></div>
+    <pre><code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+years = [<span class="nu">2015</span>, <span class="nu">2016</span>, <span class="nu">2017</span>, <span class="nu">2018</span>, <span class="nu">2019</span>, <span class="nu">2020</span>, <span class="nu">2021</span>, <span class="nu">2022</span>, <span class="nu">2023</span>, <span class="nu">2024</span>]
+revenue = [<span class="nu">60</span>, <span class="nu">70</span>, <span class="nu">80</span>, <span class="nu">95</span>, <span class="nu">105</span>, <span class="nu">100</span>, <span class="nu">120</span>, <span class="nu">135</span>, <span class="nu">145</span>, <span class="nu">160</span>]
+
+plt.<span class="fn">figure</span>(figsize=(<span class="nu">10</span>, <span class="nu">5</span>))
+plt.<span class="fn">plot</span>(years, revenue, <span class="st">'m--'</span>, marker=<span class="st">'o'</span>, linewidth=<span class="nu">2</span>, label=<span class="st">'Revenue'</span>)
+<span class="cm"># 'm--' = purple/magenta dashed; for red use 'r--'</span>
+plt.<span class="fn">title</span>(<span class="st">"Company Revenue Over Years"</span>, fontsize=<span class="nu">14</span>)
+plt.<span class="fn">xlabel</span>(<span class="st">"Years"</span>)
+plt.<span class="fn">ylabel</span>(<span class="st">"Revenue (Million $)"</span>)
+plt.<span class="fn">xticks</span>(years)
+plt.<span class="fn">grid</span>(<span class="at">True</span>, linestyle=<span class="st">'--'</span>, alpha=<span class="nu">0.7</span>)
+plt.<span class="fn">legend</span>()
+plt.<span class="fn">tight_layout</span>()
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · SCATTER PLOT — ADVERTISING vs SALES</span><span style="color:var(--muted)">QB Q4</span></div>
+    <pre><code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+np.random.<span class="fn">seed</span>(<span class="nu">42</span>)
+ad_budget = np.random.<span class="fn">uniform</span>(<span class="nu">1000</span>, <span class="nu">10000</span>, <span class="nu">50</span>)
+sales = <span class="nu">5</span> * ad_budget + np.random.<span class="fn">normal</span>(<span class="nu">0</span>, <span class="nu">5000</span>, <span class="nu">50</span>)
+
+plt.<span class="fn">figure</span>(figsize=(<span class="nu">9</span>, <span class="nu">5</span>))
+plt.<span class="fn">scatter</span>(ad_budget, sales, c=<span class="st">'blue'</span>, marker=<span class="st">'o'</span>, alpha=<span class="nu">0.6</span>, label=<span class="st">'Data Points'</span>)
+<span class="cm"># 'bo' = blue circle; alpha=0.5 makes points semi-transparent</span>
+
+<span class="cm"># Regression line</span>
+m, b = np.<span class="fn">polyfit</span>(ad_budget, sales, <span class="nu">1</span>)
+plt.<span class="fn">plot</span>(sorted(ad_budget), m*np.<span class="fn">array</span>(sorted(ad_budget))+b, <span class="st">'r-'</span>, label=<span class="st">'Regression Line'</span>)
+
+plt.<span class="fn">title</span>(<span class="st">"Advertising Budget vs Sales Revenue"</span>)
+plt.<span class="fn">xlabel</span>(<span class="st">"Advertising Budget ($)"</span>)
+plt.<span class="fn">ylabel</span>(<span class="st">"Sales Revenue ($)"</span>)
+plt.<span class="fn">legend</span>()
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="box blue">
+    <div class="lbl">alpha parameter</div>
+    <code class="inline">alpha=0.5</code> controls transparency of the scatter markers — 0 = fully transparent, 1 = fully opaque. Useful for overlapping data points.
+  </div>
+</section>
+
+<section id="u2-bar">
+  <div class="stitle">Bar Chart & Histogram</div>
+
+  <div class="box gold">
+    <div class="lbl">Bar Chart vs Histogram — QB Q2</div>
+    <strong>Bar Chart:</strong> Used for <em>categorical data</em>. Each bar represents a discrete category. Gaps between bars. X-axis = categories.<br>
+    <strong>Histogram:</strong> Used for <em>continuous/numerical data</em>. Shows frequency distribution. No gaps between bars (continuous). X-axis = value ranges (bins).
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · HISTOGRAM — STUDENT MARKS</span><span style="color:var(--muted)">QB Q3</span></div>
+    <pre><code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+np.random.<span class="fn">seed</span>(<span class="nu">10</span>)
+marks = np.random.<span class="fn">randint</span>(<span class="nu">0</span>, <span class="nu">101</span>, <span class="nu">50</span>)  <span class="cm"># 50 random marks 0-100</span>
+
+plt.<span class="fn">figure</span>(figsize=(<span class="nu">8</span>, <span class="nu">5</span>))
+plt.<span class="fn">hist</span>(marks, bins=<span class="nu">10</span>, color=<span class="st">'steelblue'</span>, edgecolor=<span class="st">'black'</span>, alpha=<span class="nu">0.8</span>)
+<span class="cm"># bins=10 divides data range into 10 equal-width intervals (classes)</span>
+plt.<span class="fn">title</span>(<span class="st">"Student Marks Distribution"</span>)
+plt.<span class="fn">xlabel</span>(<span class="st">"Marks Range"</span>)
+plt.<span class="fn">ylabel</span>(<span class="st">"Number of Students"</span>)
+plt.<span class="fn">grid</span>(<span class="at">True</span>, alpha=<span class="nu">0.5</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="g2">
+    <div class="box cyan">
+      <div class="lbl">bins=10</div>
+      Divides the data range into 10 equal-width intervals. Higher bins = more granular distribution. Lower bins = smoother overview.
+    </div>
+    <div class="box cyan">
+      <div class="lbl">dropna()</div>
+      Used before plotting histograms to remove NaN/missing values: <code class="inline">df['col'].dropna()</code>. Prevents errors from undefined numeric operations on NaN.
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · STACKED BAR CHART</span><span style="color:var(--muted)">QB Q13</span></div>
+    <pre><code>categories = [<span class="st">'Q1'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>, <span class="st">'Q4'</span>]
+product_A = [<span class="nu">200</span>, <span class="nu">250</span>, <span class="nu">180</span>, <span class="nu">300</span>]
+product_B = [<span class="nu">150</span>, <span class="nu">120</span>, <span class="nu">200</span>, <span class="nu">160</span>]
+
+plt.<span class="fn">bar</span>(categories, product_A, label=<span class="st">'Product A'</span>, color=<span class="st">'steelblue'</span>)
+plt.<span class="fn">bar</span>(categories, product_B, bottom=product_A, label=<span class="st">'Product B'</span>, color=<span class="st">'orange'</span>)
+<span class="cm"># bottom=product_A stacks Product B on top of Product A</span>
+plt.<span class="fn">legend</span>()
+plt.<span class="fn">title</span>(<span class="st">"Stacked Bar Chart"</span>)
+plt.<span class="fn">show</span>()
+
+<span class="cm"># Normal bar chart: bars side by side</span>
+<span class="cm"># Stacked bar chart: bars stacked on top — shows both total AND parts</span></code></pre>
+  </div>
+</section>
+
+<section id="u2-pie">
+  <div class="stitle">Pie Chart & Box Plot</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · PIE CHART — SMARTPHONE MARKET SHARE</span><span style="color:var(--muted)">QB Q5</span></div>
+    <pre><code>brands = [<span class="st">'Samsung'</span>, <span class="st">'Apple'</span>, <span class="st">'Xiaomi'</span>, <span class="st">'Oppo'</span>, <span class="st">'Others'</span>]
+shares = [<span class="nu">22</span>, <span class="nu">20</span>, <span class="nu">13</span>, <span class="nu">10</span>, <span class="nu">35</span>]
+colors = [<span class="st">'#1f77b4'</span>, <span class="st">'#ff7f0e'</span>, <span class="st">'#2ca02c'</span>, <span class="st">'#d62728'</span>, <span class="st">'#9467bd'</span>]
+explode = (<span class="nu">0.1</span>, <span class="nu">0</span>, <span class="nu">0</span>, <span class="nu">0</span>, <span class="nu">0</span>)  <span class="cm"># Explode Samsung (leading brand)</span>
+
+plt.<span class="fn">figure</span>(figsize=(<span class="nu">8</span>, <span class="nu">6</span>))
+plt.<span class="fn">pie</span>(shares, labels=brands, colors=colors, explode=explode,
+       autopct=<span class="st">'%1.1f%%'</span>, startangle=<span class="nu">90</span>, shadow=<span class="at">True</span>)
+<span class="cm"># autopct='%1.1f%%' → shows percentage with 1 decimal, e.g. "22.0%"</span>
+<span class="cm"># value_counts() converts categorical data to frequency counts before pie chart</span>
+plt.<span class="fn">title</span>(<span class="st">"Smartphone Market Share 2024"</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="g2">
+    <div class="box green">
+      <div class="lbl">autopct='%1.1f%%'</div>
+      Displays percentage labels on pie slices. <code class="inline">%1.1f</code> = 1 decimal float. <code class="inline">%%</code> = literal % sign. Result: "22.0%"
+    </div>
+    <div class="box green">
+      <div class="lbl">value_counts()</div>
+      Converts a Series of categories into frequency counts. E.g., <code class="inline">df['brand'].value_counts()</code> → counts per brand. Required before pie chart for categorical data.
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · BOX PLOT — MONTHLY TEMPERATURES</span><span style="color:var(--muted)">QB Q6</span></div>
+    <pre><code>months = [<span class="st">'Jan'</span>,<span class="st">'Feb'</span>,<span class="st">'Mar'</span>,<span class="st">'Apr'</span>,<span class="st">'May'</span>,<span class="st">'Jun'</span>,
+          <span class="st">'Jul'</span>,<span class="st">'Aug'</span>,<span class="st">'Sep'</span>,<span class="st">'Oct'</span>,<span class="st">'Nov'</span>,<span class="st">'Dec'</span>]
+data = [np.random.<span class="fn">normal</span>(loc, <span class="nu">3</span>, <span class="nu">30</span>) <span class="kw">for</span> loc <span class="kw">in</span>
+        [<span class="nu">15</span>,<span class="nu">17</span>,<span class="nu">22</span>,<span class="nu">28</span>,<span class="nu">34</span>,<span class="nu">38</span>,<span class="nu">40</span>,<span class="nu">39</span>,<span class="nu">34</span>,<span class="nu">28</span>,<span class="nu">22</span>,<span class="nu">16</span>]]
+
+plt.<span class="fn">figure</span>(figsize=(<span class="nu">12</span>, <span class="nu">5</span>))
+plt.<span class="fn">boxplot</span>(data, labels=months, patch_artist=<span class="at">True</span>)
+plt.<span class="fn">title</span>(<span class="st">"Monthly Temperature Distribution"</span>)
+plt.<span class="fn">ylabel</span>(<span class="st">"Temperature (°C)"</span>)
+plt.<span class="fn">grid</span>(<span class="at">True</span>, alpha=<span class="nu">0.4</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="box blue">
+    <div class="lbl">Box Plot Anatomy</div>
+    Box plot shows: <strong>Minimum</strong> (lower whisker) · <strong>Q1</strong> (25th percentile) · <strong>Median</strong> (Q2, line in box) · <strong>Q3</strong> (75th percentile) · <strong>Maximum</strong> (upper whisker) · <strong>Outliers</strong> (dots beyond whiskers). IQR = Q3 - Q1. Whiskers extend to 1.5×IQR.
+  </div>
+</section>
+
+<section id="u2-sub">
+  <div class="stitle">Subplots, Customization & Special Functions</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · SUBPLOTS — 5 ROWS × 3 COLUMNS</span><span style="color:var(--muted)">QB Q11, Q19, Q20</span></div>
+    <pre><code>fig, axes = plt.<span class="fn">subplots</span>(<span class="nu">5</span>, <span class="nu">3</span>, figsize=(<span class="nu">12</span>, <span class="nu">5</span>))
+<span class="cm"># figsize=(12,5) → width=12", height=5" → controls figure size</span>
+<span class="cm"># Creates 5×3 grid = 15 subplots</span>
+
+<span class="cm"># Access individual axes: axes[row][col]</span>
+axes[<span class="nu">0</span>][<span class="nu">0</span>].<span class="fn">plot</span>([<span class="nu">1</span>,<span class="nu">2</span>,<span class="nu">3</span>], [<span class="nu">1</span>,<span class="nu">4</span>,<span class="nu">9</span>])
+axes[<span class="nu">0</span>][<span class="nu">0</span>].<span class="fn">set_title</span>(<span class="st">'Plot 1'</span>)
+
+plt.<span class="fn">tight_layout</span>()  <span class="cm"># Prevents overlapping labels between subplots</span>
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · TWINX & SHAREX</span><span style="color:var(--muted)">QB Q22</span></div>
+    <pre><code>fig, ax1 = plt.<span class="fn">subplots</span>(figsize=(<span class="nu">10</span>, <span class="nu">5</span>))
+
+x = [<span class="nu">1</span>,<span class="nu">2</span>,<span class="nu">3</span>,<span class="nu">4</span>,<span class="nu">5</span>]
+y1 = [<span class="nu">10</span>,<span class="nu">20</span>,<span class="nu">30</span>,<span class="nu">25</span>,<span class="nu">35</span>]   <span class="cm"># Sales</span>
+y2 = [<span class="nu">1.2</span>,<span class="nu">1.8</span>,<span class="nu">2.1</span>,<span class="nu">1.9</span>,<span class="nu">2.5</span>]  <span class="cm"># Growth Rate</span>
+
+ax1.<span class="fn">plot</span>(x, y1, <span class="st">'b-'</span>, label=<span class="st">'Sales'</span>)
+ax1.<span class="fn">set_ylabel</span>(<span class="st">'Sales'</span>, color=<span class="st">'blue'</span>)
+
+ax2 = ax1.<span class="fn">twinx</span>()   <span class="cm"># Creates second y-axis sharing same x-axis</span>
+ax2.<span class="fn">plot</span>(x, y2, <span class="st">'r--'</span>, label=<span class="st">'Growth'</span>)
+ax2.<span class="fn">set_ylabel</span>(<span class="st">'Growth Rate'</span>, color=<span class="st">'red'</span>)
+
+<span class="cm"># sharex: multiple subplots sharing the SAME x-axis</span>
+fig2, (ax3, ax4) = plt.<span class="fn">subplots</span>(<span class="nu">2</span>, <span class="nu">1</span>, sharex=<span class="at">True</span>)
+ax3.<span class="fn">plot</span>(x, y1)
+ax4.<span class="fn">plot</span>(x, y2)  <span class="cm"># x-axis zooms/pans together</span>
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · FILL_BETWEEN — SHADED AREA CHART</span><span style="color:var(--muted)">QB Q10</span></div>
+    <pre><code>x = np.<span class="fn">linspace</span>(<span class="nu">0</span>, <span class="nu">10</span>, <span class="nu">100</span>)
+y = np.<span class="fn">sin</span>(x)
+
+plt.<span class="fn">plot</span>(x, y, <span class="st">'b-'</span>)
+plt.<span class="fn">fill_between</span>(x, y, <span class="nu">0</span>, alpha=<span class="nu">0.3</span>, color=<span class="st">'blue'</span>)
+<span class="cm"># fill_between(x, y1, y2) → fills area between y1 and y2 curves</span>
+<span class="cm"># Purpose: emphasize the area under/between curves (e.g., profit vs loss)</span>
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · INSET PLOT — MAIN + INSERT</span><span style="color:var(--muted)">QB Q7</span></div>
+    <pre><code>x = np.<span class="fn">linspace</span>(<span class="nu">0</span>, <span class="nu">20</span>, <span class="nu">100</span>)
+
+fig, ax = plt.<span class="fn">subplots</span>(figsize=(<span class="nu">9</span>, <span class="nu">5</span>))
+ax.<span class="fn">plot</span>(x, np.<span class="fn">sqrt</span>(x), <span class="st">'g-'</span>, linewidth=<span class="nu">2</span>)
+ax.<span class="fn">set_title</span>(<span class="st">'Square Root Function'</span>)
+ax.<span class="fn">set_xlabel</span>(<span class="st">'Values'</span>)
+ax.<span class="fn">set_ylabel</span>(<span class="st">'Square Root'</span>)
+
+<span class="cm"># Inset axes: [left, bottom, width, height] in figure fraction</span>
+ax_inset = fig.<span class="fn">add_axes</span>([<span class="nu">0.45</span>, <span class="nu">0.2</span>, <span class="nu">0.35</span>, <span class="nu">0.35</span>])
+ax_inset.<span class="fn">plot</span>(x, x**<span class="nu">3</span>, <span class="st">'g-'</span>)
+ax_inset.<span class="fn">set_title</span>(<span class="st">'Cube Function'</span>, fontsize=<span class="nu">8</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · SAVE FIGURE</span><span style="color:var(--muted)">QB Q12</span></div>
+    <pre><code>plt.<span class="fn">savefig</span>(<span class="st">'my_chart.png'</span>, dpi=<span class="nu">300</span>, bbox_inches=<span class="st">'tight'</span>)
+<span class="cm"># Formats: .png, .jpg, .pdf, .svg</span>
+<span class="cm"># dpi=300 → high resolution for publication</span>
+<span class="cm"># bbox_inches='tight' → removes extra whitespace around figure</span></code></pre>
+  </div>
+</section>
+
+<section id="u2-datetime">
+  <div class="stitle">Working with Date-Time Data</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · DATE-TIME LINE CHART</span><span style="color:var(--muted)">QB Q23, Q24</span></div>
+    <pre><code><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> matplotlib.dates <span class="kw">as</span> mdates
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+dates = pd.<span class="fn">date_range</span>(start=<span class="st">'2024-01-01'</span>, periods=<span class="nu">12</span>, freq=<span class="st">'M'</span>)
+values = [<span class="nu">100</span>,<span class="nu">120</span>,<span class="nu">115</span>,<span class="nu">130</span>,<span class="nu">145</span>,<span class="nu">160</span>,<span class="nu">155</span>,<span class="nu">170</span>,<span class="nu">165</span>,<span class="nu">180</span>,<span class="nu">190</span>,<span class="nu">210</span>]
+
+fig, ax = plt.<span class="fn">subplots</span>(figsize=(<span class="nu">12</span>, <span class="nu">5</span>))
+ax.<span class="fn">plot</span>(dates, values, <span class="st">'b-o'</span>)
+
+<span class="cm"># LOCATORS: control where tick marks appear on date axis</span>
+ax.xaxis.<span class="fn">set_major_locator</span>(mdates.<span class="fn">MonthLocator</span>())   <span class="cm"># tick every month</span>
+
+<span class="cm"># FORMATTERS: control how date ticks are displayed</span>
+ax.xaxis.<span class="fn">set_major_formatter</span>(mdates.<span class="fn">DateFormatter</span>(<span class="st">'%b %Y'</span>))  <span class="cm"># "Jan 2024"</span>
+
+fig.<span class="fn">autofmt_xdate</span>()   <span class="cm"># Rotates x-axis date labels to prevent overlap</span>
+<span class="cm"># Purpose of autofmt_xdate(): auto-rotates and right-aligns date labels</span>
+
+plt.<span class="fn">title</span>(<span class="st">"Monthly Sales 2024"</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <h3>Time Scale Selection Factors (QB Q8)</h3>
+  <ul>
+    <li><strong>Data granularity:</strong> Match time scale to how data is collected (hourly data → daily/hourly scale)</li>
+    <li><strong>Pattern visibility:</strong> Daily scale for short-term fluctuations; yearly for long-term trends</li>
+    <li><strong>Business context:</strong> Financial reporting uses monthly/quarterly; weather uses daily/hourly</li>
+    <li><strong>Amount of data:</strong> Too fine → cluttered; too coarse → hides patterns</li>
+    <li><strong>Seasonality detection:</strong> Yearly scale shows annual seasonal patterns</li>
+  </ul>
+</section>
+
+<section id="u2-qb">
+  <div class="stitle">Matplotlib QB Quick Answers <span class="pill">EXAM</span></div>
+  <div class="tw"><table>
+    <tr><th>Question</th><th>Answer</th></tr>
+    <tr><td>Q10: Purpose of <code class="inline">fill_between()</code></td><td>Fills the area between two curves (y1, y2) for a given x. Used in shaded area charts to emphasize range or cumulative data.</td></tr>
+    <tr><td>Q12: Save a graph</td><td><code class="inline">plt.savefig('name.png', dpi=300)</code></td></tr>
+    <tr><td>Q13: Stacked vs Normal bar</td><td>Normal: bars side-by-side (grouped). Stacked: bars on top of each other, showing total + part composition using <code class="inline">bottom=</code> parameter.</td></tr>
+    <tr><td>Q14: Why <code class="inline">dropna()</code> in histogram</td><td>NaN values cause errors in numeric operations. <code class="inline">dropna()</code> removes missing values before computing bin ranges.</td></tr>
+    <tr><td>Q15: Missing data handling</td><td>Use <code class="inline">dropna()</code>, <code class="inline">fillna()</code>, or interpolation before plotting. Pandas handles it; Matplotlib leaves gaps.</td></tr>
+    <tr><td>Q16: Role of <code class="inline">bins=10</code></td><td>Divides the data range into 10 equal-width intervals. Controls granularity of distribution view.</td></tr>
+    <tr><td>Q17: Why <code class="inline">value_counts()</code> before pie</td><td>Converts categorical series into count-per-category needed for pie slice sizes.</td></tr>
+    <tr><td>Q18: <code class="inline">autopct='%1.1f%%'</code></td><td>Displays percentage labels on each pie slice with 1 decimal place. %% = literal % sign.</td></tr>
+    <tr><td>Q19: <code class="inline">figsize=(12,5)</code></td><td>Sets figure dimensions: width=12 inches, height=5 inches. Controls overall plot canvas size.</td></tr>
+    <tr><td>Q20: Why <code class="inline">tight_layout()</code></td><td>Automatically adjusts subplot spacing to prevent overlapping titles, labels, and ticks.</td></tr>
+    <tr><td>Q21: <code class="inline">alpha=0.5</code> in scatter</td><td>Sets 50% transparency for markers. Helps see overlapping points more clearly.</td></tr>
+    <tr><td>Q23: Locators vs Formatters</td><td>Locators control WHERE ticks appear (e.g., <code class="inline">MonthLocator()</code>). Formatters control HOW ticks look (e.g., <code class="inline">DateFormatter('%b %Y')</code>).</td></tr>
+    <tr><td>Q24: <code class="inline">autofmt_xdate()</code></td><td>Auto-rotates and right-aligns x-axis date labels to prevent overlap. Calls <code class="inline">setp(ax.get_xticklabels(), rotation=30)</code> internally.</td></tr>
+  </table></div>
+</section>
+
+<!-- ═══ UNIT 3A — SEABORN ═══ -->
+<div id="u3s" class="uhead" style="border-left-color:var(--purple)">
+  <div class="utag" style="color:var(--purple);background:rgba(192,132,252,.1)">UNIT 3A · SEABORN · 20%</div>
+  <div>
+    <h2>Data Visualization using Seaborn</h2>
+    <p>Relational · Distribution · Categorical · Heatmap · FacetGrid</p>
+  </div>
+</div>
+
+<section>
+  <div class="stitle">Seaborn vs Matplotlib</div>
+  <div class="tw"><table>
+    <tr><th>Aspect</th><th>Seaborn</th><th>Matplotlib</th></tr>
+    <tr><td>Level</td><td>High-level (built on Matplotlib)</td><td>Low-level (foundational)</td></tr>
+    <tr><td>Default Style</td><td>Beautiful, statistical aesthetics</td><td>Basic, needs manual styling</td></tr>
+    <tr><td>Statistical Support</td><td>Built-in: CI, regression, distributions</td><td>Manual calculation required</td></tr>
+    <tr><td>Code Length</td><td>Short (1-2 lines for complex plots)</td><td>Longer (more configuration)</td></tr>
+    <tr><td>Dataset Support</td><td>Works directly with DataFrames</td><td>Works with arrays</td></tr>
+    <tr><td>Themes</td><td>darkgrid, whitegrid, dark, white, ticks</td><td>Limited (needs rcParams)</td></tr>
+  </table></div>
+  <div class="kp">Seaborn is essentially a statistical data visualization library. Every Seaborn plot can be further customized using Matplotlib commands.</div>
+</section>
+
+<section id="u3s-rel">
+  <div class="stitle">Relational Plots</div>
+
+  <div class="box gold">
+    <div class="lbl">QB Q1 — Default chart for relational plot</div>
+    <strong>Scatter plot</strong> is the default chart type for <code class="inline">sns.relplot(kind='scatter')</code> (which is the default kind).
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · RELATIONAL LINE PLOT WITH HUE, STYLE, SIZE</span><span style="color:var(--muted)">QB Q21, Q25</span></div>
+    <pre><code><span class="kw">import</span> seaborn <span class="kw">as</span> sns
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+fmri = sns.<span class="fn">load_dataset</span>(<span class="st">"fmri"</span>)
+
+<span class="cm"># hue: assigns different colors to different subsets (categories)</span>
+<span class="cm"># style: assigns different line styles (solid, dashed) per category</span>
+<span class="cm"># dashes: customize dash patterns per hue level</span>
+<span class="cm"># markers: assign different markers per category</span>
+<span class="cm"># errorbar='sd': shows standard deviation as shaded band around line</span>
+
+sns.<span class="fn">relplot</span>(
+    data=fmri, x=<span class="st">"timepoint"</span>, y=<span class="st">"signal"</span>,
+    hue=<span class="st">"event"</span>,          <span class="cm"># QB Q2: hue gives each event a different color</span>
+    style=<span class="st">"region"</span>,        <span class="cm"># different line styles per region</span>
+    kind=<span class="st">"line"</span>,
+    errorbar=<span class="st">"sd"</span>          <span class="cm"># QB Q5: adds ±1 std dev shading</span>
+)
+plt.<span class="fn">title</span>(<span class="st">"FMRI Signal Over Time"</span>)
+plt.<span class="fn">show</span>()
+
+<span class="cm"># estimator=None (QB Q17): plots raw data instead of aggregating</span>
+<span class="cm"># Without estimator=None, Seaborn averages y values at each x</span></code></pre>
+  </div>
+
+  <div class="g2">
+    <div class="box blue">
+      <div class="lbl">QB Q7 — size in scatter</div>
+      <code class="inline">size</code> parameter maps a variable to marker SIZE. Larger values get larger markers.
+      <code class="inline">sizes=(20, 200)</code> sets min/max size range.
+    </div>
+    <div class="box blue">
+      <div class="lbl">QB Q8 — sizes parameter</div>
+      <code class="inline">sizes</code> is a tuple <code class="inline">(min, max)</code> or dict defining the actual pixel sizes for each unique value in the <code class="inline">size</code> variable.
+    </div>
+  </div>
+</section>
+
+<section id="u3s-dist">
+  <div class="stitle">Distribution Plots</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · DISTRIBUTION PLOTS — HISTOGRAM, KDE, BOX</span><span style="color:var(--muted)">QB Q22</span></div>
+    <pre><code>tips = sns.<span class="fn">load_dataset</span>(<span class="st">"tips"</span>)
+
+<span class="cm"># 1. Histogram with KDE</span>
+sns.<span class="fn">displot</span>(tips, x=<span class="st">"total_bill"</span>, kde=<span class="at">True</span>, bins=<span class="nu">20</span>)
+
+<span class="cm"># 2. KDE only</span>
+sns.<span class="fn">displot</span>(tips, x=<span class="st">"total_bill"</span>, kind=<span class="st">"kde"</span>)
+
+<span class="cm"># stat="probability" (QB Q10): y-axis shows probability (0-1) instead of count</span>
+sns.<span class="fn">histplot</span>(tips, x=<span class="st">"total_bill"</span>, stat=<span class="st">"probability"</span>)
+
+<span class="cm"># bw_adjust=0.25 (QB Q19): reduces bandwidth → spikier, more detailed KDE</span>
+<span class="cm"># Higher bw_adjust → smoother curve; lower → follows data more closely</span>
+sns.<span class="fn">displot</span>(tips, x=<span class="st">"total_bill"</span>, kind=<span class="st">"kde"</span>, bw_adjust=<span class="nu">0.25</span>)
+
+<span class="cm"># common_norm=False (QB Q18): each subgroup normalized independently</span>
+<span class="cm"># Without it, all groups share same normalization total</span>
+sns.<span class="fn">displot</span>(tips, x=<span class="st">"total_bill"</span>, hue=<span class="st">"sex"</span>, kind=<span class="st">"kde"</span>, common_norm=<span class="at">False</span>)
+
+<span class="cm"># Stack multiple species (QB Q27)</span>
+penguins = sns.<span class="fn">load_dataset</span>(<span class="st">"penguins"</span>)
+sns.<span class="fn">displot</span>(penguins, x=<span class="st">"flipper_length_mm"</span>, hue=<span class="st">"species"</span>, multiple=<span class="st">"stack"</span>)
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+</section>
+
+<section id="u3s-cat">
+  <div class="stitle">Categorical Plots</div>
+
+  <div class="box gold">
+    <div class="lbl">QB Q11 — Default kind in catplot()</div>
+    <strong>strip</strong> is the default kind in <code class="inline">sns.catplot()</code> for categorical scatter plots.
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · CATEGORICAL PLOTS COMPARISON</span><span style="color:var(--muted)">QB Q24, Q28-Q36</span></div>
+    <pre><code>tips = sns.<span class="fn">load_dataset</span>(<span class="st">"tips"</span>)
+
+<span class="cm"># STRIPPLOT: categorical scatter, points can overlap</span>
+<span class="cm"># jitter=True (QB Q28): adds random noise horizontally to separate overlapping points</span>
+sns.<span class="fn">catplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>, jitter=<span class="at">False</span>)  <span class="cm"># QB Q29</span>
+
+<span class="cm"># SWARMPLOT: like stripplot but NEVER overlaps (points arranged algorithmically)</span>
+<span class="cm"># QB Q12: stripplot can overlap; swarmplot cannot → swarmplot shows all points clearly</span>
+<span class="cm"># dodge (QB Q13): separates hue groups side-by-side in swarmplot</span>
+sns.<span class="fn">swarmplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"tip"</span>, hue=<span class="st">"sex"</span>, dodge=<span class="at">True</span>)
+
+<span class="cm"># ORDER parameter (QB Q20): controls display order of categories</span>
+sns.<span class="fn">catplot</span>(data=tips, x=<span class="st">"smoker"</span>, y=<span class="st">"tip"</span>, order=[<span class="st">"No"</span>, <span class="st">"Yes"</span>])  <span class="cm"># QB Q30</span>
+
+<span class="cm"># BOXENPLOT (QB Q14): for larger datasets; shows more quantiles than boxplot</span>
+<span class="cm"># Use boxenplot instead of boxplot when dataset > 1000 rows for more detail</span>
+sns.<span class="fn">boxenplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>)
+
+<span class="cm"># VIOLIN PLOT: combines box plot + KDE; shows full distribution</span>
+<span class="cm"># SPLIT violin for comparison (QB Q35)</span>
+sns.<span class="fn">violinplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>, hue=<span class="st">"smoker"</span>, split=<span class="at">True</span>)
+
+<span class="cm"># VIOLIN + SWARM overlay (QB Q31)</span>
+g = sns.<span class="fn">catplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>, kind=<span class="st">"violin"</span>, inner=<span class="at">None</span>)
+sns.<span class="fn">swarmplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>, color=<span class="st">"k"</span>, size=<span class="nu">3</span>, ax=g.ax)
+
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · REGRESSION PLOTS</span><span style="color:var(--muted)">QB Q23</span></div>
+    <pre><code><span class="cm"># regplot: single regression line on scatter</span>
+sns.<span class="fn">regplot</span>(data=tips, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>)
+
+<span class="cm"># logistic=True (QB Q15): fits logistic regression curve instead of linear</span>
+<span class="cm"># Use when y is binary (0/1)</span>
+sns.<span class="fn">regplot</span>(data=tips, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>, logistic=<span class="at">True</span>)
+
+<span class="cm"># lmplot: regplot + FacetGrid (supports hue, col, row)</span>
+sns.<span class="fn">lmplot</span>(data=tips, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>, hue=<span class="st">"smoker"</span>)
+
+<span class="cm"># orient (QB Q6): 'v' (vertical, default) or 'h' (horizontal)</span>
+<span class="cm"># Affects which axis categorical/numeric data is placed on</span>
+sns.<span class="fn">boxplot</span>(data=tips, x=<span class="st">"tip"</span>, y=<span class="st">"day"</span>, orient=<span class="st">'h'</span>)</code></pre>
+  </div>
+</section>
+
+<section id="u3s-heat">
+  <div class="stitle">Heatmap & Clustermap</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · HEATMAP & CLUSTERMAP</span><span style="color:var(--muted)">QB Q3</span></div>
+    <pre><code>flights = sns.<span class="fn">load_dataset</span>(<span class="st">"flights"</span>)
+pivot = flights.<span class="fn">pivot_table</span>(index=<span class="st">"month"</span>, columns=<span class="st">"year"</span>, values=<span class="st">"passengers"</span>)
+
+<span class="cm"># HEATMAP: color-coded 2D grid — no reordering of rows/columns</span>
+sns.<span class="fn">heatmap</span>(pivot, annot=<span class="at">True</span>, fmt=<span class="st">"d"</span>, cmap=<span class="st">"YlOrRd"</span>, linewidths=<span class="nu">0.5</span>)
+plt.<span class="fn">title</span>(<span class="st">"Flight Passengers Heatmap"</span>)
+<span class="cm"># Use case: correlation matrices, confusion matrices, pivot tables</span>
+
+<span class="cm"># CLUSTERMAP: heatmap + hierarchical clustering</span>
+<span class="cm"># Automatically reorders rows and columns by similarity (dendrogram)</span>
+sns.<span class="fn">clustermap</span>(pivot, cmap=<span class="st">"YlOrRd"</span>, standard_scale=<span class="nu">1</span>)
+<span class="cm"># Use case: gene expression data, finding similar rows/columns</span>
+plt.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Aspect</th><th>Heatmap</th><th>Clustermap</th></tr>
+    <tr><td>Row/Column order</td><td>Fixed (as provided)</td><td>Reordered by hierarchical clustering</td></tr>
+    <tr><td>Dendrogram</td><td>❌ Not shown</td><td>✅ Shown on sides</td></tr>
+    <tr><td>Best Use Case</td><td>Correlation matrices, confusion matrices</td><td>Gene expression, finding data groups</td></tr>
+  </table></div>
+
+  <h3>Jointplot vs Pairplot (QB Q4)</h3>
+  <div class="g2">
+    <div class="box blue">
+      <div class="lbl">Jointplot</div>
+      Shows relationship between <strong>2 specific variables</strong>. Has a central scatter/hex plot with marginal distributions (histogram/KDE) on x and y axes. <code class="inline">sns.jointplot(data=df, x='a', y='b', kind='scatter')</code>
+    </div>
+    <div class="box blue">
+      <div class="lbl">Pairplot</div>
+      Shows relationships between <strong>ALL numerical pairs</strong> in a dataset. Grid of scatter plots off-diagonal, distributions on diagonal. <code class="inline">sns.pairplot(df, hue='species')</code>
+    </div>
+  </div>
+</section>
+
+<section id="u3s-facet">
+  <div class="stitle">FacetGrid <span class="pill g">QB Q9, Q32, Q33</span></div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · FACETGRID</span></div>
+    <pre><code>tips = sns.<span class="fn">load_dataset</span>(<span class="st">"tips"</span>)
+
+<span class="cm"># FacetGrid creates multi-panel figures based on data variables</span>
+g = sns.<span class="fn">FacetGrid</span>(tips, col=<span class="st">"time"</span>, row=<span class="st">"sex"</span>)
+g.<span class="fn">map</span>(sns.scatterplot, <span class="st">"total_bill"</span>, <span class="st">"tip"</span>)
+<span class="cm"># Creates 2×2 grid: Lunch/Dinner × Male/Female</span>
+
+<span class="cm"># QB Q16: sharex=False / sharey=False → each facet has independent axes</span>
+<span class="cm"># Useful when different subsets have very different ranges</span>
+g2 = sns.<span class="fn">FacetGrid</span>(tips, col=<span class="st">"day"</span>, sharex=<span class="at">False</span>, sharey=<span class="at">False</span>)
+
+<span class="cm"># relplot, displot, catplot, lmplot internally USE FacetGrid (QB Q32)</span>
+<span class="cm"># col='time' in relplot → internally passes to FacetGrid</span>
+sns.<span class="fn">relplot</span>(data=tips, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>, col=<span class="st">"time"</span>)
+
+<span class="cm"># Overlay multiple plots per facet (QB Q33)</span>
+g3 = sns.<span class="fn">FacetGrid</span>(tips, col=<span class="st">"sex"</span>)
+g3.<span class="fn">map</span>(sns.boxplot, <span class="st">"day"</span>, <span class="st">"total_bill"</span>)
+g3.<span class="fn">map</span>(sns.swarmplot, <span class="st">"day"</span>, <span class="st">"total_bill"</span>, color=<span class="st">"k"</span>, size=<span class="nu">2</span>)
+
+<span class="cm"># Strip plot with col (QB Q37)</span>
+sns.<span class="fn">catplot</span>(data=tips, x=<span class="st">"day"</span>, y=<span class="st">"total_bill"</span>, kind=<span class="st">"strip"</span>,
+            jitter=<span class="at">True</span>, hue=<span class="st">"sex"</span>, col=<span class="st">"time"</span>, palette=<span class="st">"muted"</span>)
+<span class="cm"># col='time' splits into Lunch/Dinner panels → adds dimension of analysis</span></code></pre>
+  </div>
+</section>
+
+<section id="u3s-qb">
+  <div class="stitle">Seaborn QB Quick Answers <span class="pill">EXAM</span></div>
+  <div class="tw"><table>
+    <tr><th>QB #</th><th>Question</th><th>Answer</th></tr>
+    <tr><td>Q1</td><td>Default relational chart</td><td>Scatter plot (<code class="inline">kind='scatter'</code> is default in relplot)</td></tr>
+    <tr><td>Q2</td><td>How does hue affect line chart</td><td>Draws separate lines for each unique value of the hue variable, each in a different color with a legend entry</td></tr>
+    <tr><td>Q5</td><td>errorbar=sd</td><td>Shows ±1 standard deviation as shaded band around the line — indicates data spread, not just mean</td></tr>
+    <tr><td>Q6</td><td>orient parameter</td><td>'v' = vertical (default, numeric on y-axis); 'h' = horizontal (numeric on x-axis). Rotates the entire plot 90°</td></tr>
+    <tr><td>Q10</td><td>stat="probability"</td><td>Y-axis shows proportion (0-1) instead of raw count. Each bar height = count/total</td></tr>
+    <tr><td>Q11</td><td>Default kind in catplot()</td><td>strip (categorical scatter plot)</td></tr>
+    <tr><td>Q12</td><td>stripplot vs swarmplot</td><td>stripplot: points can overlap (uses jitter to reduce). swarmplot: points NEVER overlap, arranged algorithmically</td></tr>
+    <tr><td>Q13</td><td>dodge in swarmplot</td><td>When hue is used, dodge=True places each hue group side-by-side instead of overlapping</td></tr>
+    <tr><td>Q14</td><td>boxenplot vs boxplot</td><td>Use boxenplot for large datasets (>1000 rows). Shows more quantiles for a detailed distribution view</td></tr>
+    <tr><td>Q15</td><td>logistic=True in regplot</td><td>Fits a logistic regression S-curve instead of linear. Use when y variable is binary (0/1)</td></tr>
+    <tr><td>Q17</td><td>estimator=None</td><td>Plots individual raw data points instead of computing aggregation (mean by default)</td></tr>
+    <tr><td>Q18</td><td>common_norm=False</td><td>Each hue group is normalized independently. Without it, the total area across all groups = 1</td></tr>
+    <tr><td>Q19</td><td>bw_adjust=0.25</td><td>Reduces KDE bandwidth → more sensitive to local features → spikier, less smooth curve</td></tr>
+    <tr><td>Q20</td><td>order parameter</td><td>Controls display order of categorical x-axis. <code class="inline">order=['Fri','Sat','Sun']</code></td></tr>
+  </table></div>
+</section>
+
+<!-- ═══ UNIT 3B — PLOTLY ═══ -->
+<div id="u3p" class="uhead" style="border-left-color:var(--red)">
+  <div class="utag" style="color:var(--red);background:rgba(247,128,128,.1)">UNIT 3B · PLOTLY · 18%</div>
+  <div>
+    <h2>Data Visualization using Plotly</h2>
+    <p>Interactive Charts · Dropdowns · Sliders · Buttons · Animation</p>
+  </div>
+</div>
+
+<section id="u3p-basic">
+  <div class="stitle">Plotly Basics</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · BASIC PLOTLY CHARTS</span><span style="color:var(--muted)">QB Q13, Q16, Q18</span></div>
+    <pre><code><span class="kw">import</span> plotly.express <span class="kw">as</span> px
+<span class="kw">import</span> plotly.graph_objects <span class="kw">as</span> go
+
+<span class="cm"># LINE CHART (QB Q13)</span>
+fig = px.<span class="fn">line</span>(x=[<span class="nu">1</span>,<span class="nu">2</span>,<span class="nu">3</span>,<span class="nu">4</span>], y=[<span class="nu">10</span>,<span class="nu">20</span>,<span class="nu">15</span>,<span class="nu">25</span>],
+              title=<span class="st">"Sales Trend"</span>)  <span class="cm"># QB Q9: add title</span>
+fig.<span class="fn">show</span>()
+
+<span class="cm"># BAR CHART with axis labels (QB Q16)</span>
+fig = px.<span class="fn">bar</span>(x=[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>], y=[<span class="nu">30</span>,<span class="nu">50</span>,<span class="nu">20</span>],
+             labels={<span class="st">'x'</span>:<span class="st">'Category'</span>, <span class="st">'y'</span>:<span class="st">'Sales'</span>},
+             title=<span class="st">"Sales by Category"</span>)
+
+<span class="cm"># PIE CHART with custom hover text (QB Q18)</span>
+fig = px.<span class="fn">pie</span>(values=[<span class="nu">40</span>,<span class="nu">30</span>,<span class="nu">20</span>,<span class="nu">10</span>],
+             names=[<span class="st">'Samsung'</span>,<span class="st">'Apple'</span>,<span class="st">'Xiaomi'</span>,<span class="st">'Others'</span>],
+             hover_data=[<span class="st">'Samsung'</span>,<span class="st">'Apple'</span>,<span class="st">'Xiaomi'</span>,<span class="st">'Others'</span>])
+
+<span class="cm"># VIOLIN PLOT (QB Q1): shows distribution shape + quartiles</span>
+df = px.<span class="fn">data.tips</span>()
+fig = px.<span class="fn">violin</span>(df, y=<span class="st">"total_bill"</span>, x=<span class="st">"day"</span>, box=<span class="at">True</span>)
+<span class="cm"># box=True: overlays box plot within violin</span>
+
+<span class="cm"># 3D SCATTER (QB Q8): shows 3 variable relationship simultaneously</span>
+fig = px.<span class="fn">scatter_3d</span>(df, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>, z=<span class="st">"size"</span>, color=<span class="st">"sex"</span>)
+
+<span class="cm"># Marker colors in scatter (QB Q12)</span>
+fig = px.<span class="fn">scatter</span>(df, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>,
+                  color_discrete_sequence=[<span class="st">"red"</span>])</code></pre>
+  </div>
+</section>
+
+<section id="u3p-inter">
+  <div class="stitle">Plotly Interactivity <span class="pill">QB FOCUS</span></div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · UPDATE_LAYOUT, HOVER TOOLTIPS</span><span style="color:var(--muted)">QB Q2, Q4</span></div>
+    <pre><code><span class="cm"># QB Q4: update_layout() customizes figure appearance</span>
+fig.<span class="fn">update_layout</span>(
+    title=<span class="st">"My Chart"</span>,
+    xaxis_title=<span class="st">"X Axis"</span>,
+    yaxis_title=<span class="st">"Y Axis"</span>,
+    font=<span class="fn">dict</span>(family=<span class="st">"Arial"</span>, size=<span class="nu">14</span>),
+    legend=<span class="fn">dict</span>(x=<span class="nu">0</span>, y=<span class="nu">1</span>),
+    plot_bgcolor=<span class="st">"white"</span>,
+    hovermode=<span class="st">"x unified"</span>   <span class="cm"># shows all hover labels at x position</span>
+)
+
+<span class="cm"># QB Q2: Enable hover tooltips using hover_data or hovertemplate</span>
+fig = px.<span class="fn">scatter</span>(df, x=<span class="st">"total_bill"</span>, y=<span class="st">"tip"</span>,
+                  hover_name=<span class="st">"day"</span>,
+                  hover_data=[<span class="st">"sex"</span>, <span class="st">"size"</span>])
+<span class="cm"># Custom hover template</span>
+fig.<span class="fn">update_traces</span>(hovertemplate=<span class="st">"Bill: %{x}<br>Tip: %{y}"</span>)
+
+<span class="cm"># QB Q7: Zooming and panning - BUILT-IN in Plotly</span>
+<span class="cm"># No code needed - Plotly toolbar has zoom, pan, reset automatically</span>
+
+<span class="cm"># QB Q5: Export as PNG</span>
+<span class="kw">import</span> plotly.io <span class="kw">as</span> pio
+fig.<span class="fn">write_image</span>(<span class="st">"chart.png"</span>)   <span class="cm"># requires kaleido: pip install kaleido</span></code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · DROPDOWN MENU</span><span style="color:var(--muted)">QB Q10, Q19</span></div>
+    <pre><code><span class="cm"># QB Q10: Dropdown filters/switches between traces or data</span>
+fig = go.<span class="fn">Figure</span>()
+
+<span class="kw">for</span> stock <span class="kw">in</span> [<span class="st">'AAPL'</span>, <span class="st">'GOOGL'</span>, <span class="st">'MSFT'</span>]:
+    fig.<span class="fn">add_trace</span>(go.<span class="fn">Scatter</span>(
+        x=[<span class="nu">1</span>,<span class="nu">2</span>,<span class="nu">3</span>,<span class="nu">4</span>,<span class="nu">5</span>], y=[<span class="nu">10</span>,<span class="nu">12</span>,<span class="nu">11</span>,<span class="nu">14</span>,<span class="nu">13</span>],
+        name=stock, visible=(stock==<span class="st">'AAPL'</span>)
+    ))
+
+<span class="cm"># restyle (QB Q17): changes trace properties without full re-render</span>
+buttons = [<span class="fn">dict</span>(
+    label=stock,
+    method=<span class="st">"restyle"</span>,     <span class="cm"># QB Q17: restyle updates trace data/styling</span>
+    args=[{<span class="st">"visible"</span>: [s==stock <span class="kw">for</span> s <span class="kw">in</span> [<span class="st">'AAPL'</span>,<span class="st">'GOOGL'</span>,<span class="st">'MSFT'</span>]]}]
+) <span class="kw">for</span> stock <span class="kw">in</span> [<span class="st">'AAPL'</span>,<span class="st">'GOOGL'</span>,<span class="st">'MSFT'</span>]]
+
+fig.<span class="fn">update_layout</span>(
+    updatemenus=[<span class="fn">dict</span>(type=<span class="st">"dropdown"</span>, buttons=buttons)]
+)
+fig.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · SLIDERS</span><span style="color:var(--muted)">QB Q14</span></div>
+    <pre><code><span class="cm"># Slider filters data by a parameter (e.g., date, year)</span>
+years = [<span class="nu">2020</span>, <span class="nu">2021</span>, <span class="nu">2022</span>, <span class="nu">2023</span>]
+fig = go.<span class="fn">Figure</span>()
+
+<span class="kw">for</span> year <span class="kw">in</span> years:
+    fig.<span class="fn">add_trace</span>(go.<span class="fn">Bar</span>(x=[<span class="st">'Q1'</span>,<span class="st">'Q2'</span>,<span class="st">'Q3'</span>,<span class="st">'Q4'</span>],
+                          y=[<span class="nu">10</span>,<span class="nu">20</span>,<span class="nu">15</span>,<span class="nu">25</span>],
+                          name=<span class="fn">str</span>(year),
+                          visible=(year==<span class="nu">2020</span>)))
+
+steps = [<span class="fn">dict</span>(
+    args=[{<span class="st">"visible"</span>: [y==year <span class="kw">for</span> y <span class="kw">in</span> years]}],
+    method=<span class="st">"restyle"</span>,
+    label=<span class="fn">str</span>(year)
+) <span class="kw">for</span> year <span class="kw">in</span> years]
+
+fig.<span class="fn">update_layout</span>(sliders=[<span class="fn">dict</span>(steps=steps)])
+fig.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · ANIMATION WITH FRAMES</span><span style="color:var(--muted)">QB Q20</span></div>
+    <pre><code><span class="kw">import</span> plotly.express <span class="kw">as</span> px
+
+df = px.<span class="fn">data.gapminder</span>()
+<span class="cm"># animation_frame: creates one frame per unique value</span>
+<span class="cm"># animation_group: objects that persist across frames (identified by ID)</span>
+fig = px.<span class="fn">scatter</span>(df, x=<span class="st">"gdpPercap"</span>, y=<span class="st">"lifeExp"</span>,
+                  size=<span class="st">"pop"</span>, color=<span class="st">"continent"</span>,
+                  animation_frame=<span class="st">"year"</span>,    <span class="cm"># one frame per year</span>
+                  animation_group=<span class="st">"country"</span>, <span class="cm"># country persists across years</span>
+                  hover_name=<span class="st">"country"</span>,
+                  log_x=<span class="at">True</span>)
+fig.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <h3>Box Plot vs Violin Plot in Plotly (QB Q11)</h3>
+  <div class="tw"><table>
+    <tr><th>Aspect</th><th>Box Plot</th><th>Violin Plot</th></tr>
+    <tr><td>Shows</td><td>5-number summary (min,Q1,median,Q3,max)</td><td>Full distribution shape (KDE) + quartiles</td></tr>
+    <tr><td>Best for</td><td>Quick summary statistics &amp; outliers</td><td>Understanding distribution shape and modality</td></tr>
+    <tr><td>Detail</td><td>Less detail (only quartiles)</td><td>More detail (shows density at every value)</td></tr>
+  </table></div>
+
+  <h3>Legend Toggle (QB Q15)</h3>
+  <div class="box blue">
+    In Plotly, clicking a legend item toggles its trace visibility. Single click hides/shows. Double click isolates that trace (hides all others). No code required — it's built into every Plotly figure.
+  </div>
+</section>
+
+<section id="u3p-qb">
+  <div class="stitle">Plotly QB Scenario Solutions</div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · STOCK MARKET DASHBOARD (QB Q21)</span></div>
+    <pre><code><span class="kw">import</span> plotly.express <span class="kw">as</span> px
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cm"># a) Interactive animated line chart</span>
+stock_data = pd.<span class="fn">DataFrame</span>({
+    <span class="st">'Date'</span>: pd.<span class="fn">date_range</span>(<span class="st">'2024-01-01'</span>, periods=<span class="nu">12</span>, freq=<span class="st">'M'</span>).<span class="fn">tolist</span>()*<span class="nu">3</span>,
+    <span class="st">'Stock'</span>: [<span class="st">'AAPL'</span>]*<span class="nu">12</span> + [<span class="st">'GOOGL'</span>]*<span class="nu">12</span> + [<span class="st">'MSFT'</span>]*<span class="nu">12</span>,
+    <span class="st">'Close_Price'</span>: list(range(<span class="nu">150</span>,<span class="nu">162</span>))+list(range(<span class="nu">130</span>,<span class="nu">142</span>))+list(range(<span class="nu">300</span>,<span class="nu">312</span>))
+})
+
+<span class="cm"># b) Line chart with dropdown to select stock</span>
+fig = px.<span class="fn">line</span>(stock_data, x=<span class="st">'Date'</span>, y=<span class="st">'Close_Price'</span>,
+               color=<span class="st">'Stock'</span>, title=<span class="st">"Stock Market Dashboard"</span>,
+               hover_data=[<span class="st">'Stock'</span>, <span class="st">'Close_Price'</span>])
+<span class="cm"># c) Hover info: hover_data shows Stock, Date auto-shown, Close_Price shown</span>
+<span class="cm"># d) Zoom/pan: built into Plotly toolbar automatically</span>
+fig.<span class="fn">show</span>()</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>PYTHON · IRIS VIOLIN + BOX OVERLAY (QB Q24)</span></div>
+    <pre><code>df = px.<span class="fn">data.iris</span>()
+
+<span class="cm"># a) Violin plot comparing sepal length by species</span>
+fig = go.<span class="fn">Figure</span>()
+
+<span class="kw">for</span> species <span class="kw">in</span> df[<span class="st">'species'</span>].<span class="fn">unique</span>():
+    sub = df[df[<span class="st">'species'</span>]==species]
+    fig.<span class="fn">add_trace</span>(go.<span class="fn">Violin</span>(
+        y=sub[<span class="st">'sepal_length'</span>], name=species, box_visible=<span class="at">True</span>,  <span class="cm"># b)</span>
+        points=<span class="st">'all'</span>
+    ))
+
+fig.<span class="fn">update_layout</span>(
+    title=<span class="st">"Sepal Length by Species"</span>,  <span class="cm"># d) title and labels</span>
+    xaxis_title=<span class="st">"Species"</span>,
+    yaxis_title=<span class="st">"Sepal Length (cm)"</span>,
+    legend_title=<span class="st">"Species"</span>           <span class="cm"># c) legend toggle built-in</span>
+)
+fig.<span class="fn">show</span>()</code></pre>
+  </div>
+</section>
+
+<!-- ═══ UNIT 4 — POWER BI ═══ -->
+<div id="u4" class="uhead" style="border-left-color:var(--gold)">
+  <div class="utag" style="color:var(--gold)">UNIT 4 · 15 HRS · 20%</div>
+  <div>
+    <h2>Power BI</h2>
+    <p>Power Query · Data Modeling · DAX · Visualizations · Dashboards</p>
+  </div>
+</div>
+
+<section>
+  <div class="stitle">Power BI Overview</div>
+  <p><strong>Power BI</strong> is Microsoft's business analytics service that provides interactive visualizations and business intelligence capabilities. It transforms data from various sources into actionable insights.</p>
+
+  <div class="g3">
+    <div class="gc"><h5>Power BI Desktop</h5><p>Free Windows application for creating reports and data models. Design dashboards, write DAX, transform data.</p></div>
+    <div class="gc"><h5>Power BI Service</h5><p>Cloud-based SaaS platform (powerbi.com) for publishing, sharing, and collaborating on reports.</p></div>
+    <div class="gc"><h5>Power BI Mobile</h5><p>iOS/Android app for consuming reports and dashboards on mobile devices.</p></div>
+  </div>
+
+  <div class="box gold">
+    <div class="lbl">QB Q1 — Default chart type</div>
+    <strong>Bar chart (clustered bar)</strong> is the default chart type when you drag a numeric field to the canvas in Power BI.
+  </div>
+
+  <div class="box blue">
+    <div class="lbl">QB Q8 — Bar vs Column Chart</div>
+    <strong>Bar chart:</strong> Horizontal bars. Best when category names are long.
+    <strong>Column chart:</strong> Vertical bars. Best for time-series comparisons and traditional comparisons.
+  </div>
+</section>
+
+<section id="u4-pq">
+  <div class="stitle">Power Query Editor <span class="pill">QB FOCUS</span></div>
+  <p>Power Query is the data transformation engine in Power BI. It uses <strong>M language</strong> behind the scenes.</p>
+
+  <h3>Common Power Query Operations</h3>
+  <div class="tw"><table>
+    <tr><th>Operation</th><th>Purpose</th><th>How (QB Answers)</th></tr>
+    <tr><td><strong>Remove Duplicates</strong> (QB Q13)</td><td>Keep only unique rows</td><td>Home → Remove Rows → Remove Duplicates</td></tr>
+    <tr><td><strong>Unpivot</strong> (QB Q14)</td><td>Convert wide format to long format (columns to rows)</td><td>Select columns → Transform → Unpivot Columns. Used for normalizing data.</td></tr>
+    <tr><td><strong>Missing Values</strong> (QB Q23)</td><td>Handle nulls</td><td>Replace Values (null → 0/mean), Remove Rows with Errors, or Fill Down/Up</td></tr>
+    <tr><td><strong>Group By</strong> (QB Q24)</td><td>Aggregate data by category</td><td>Transform → Group By → choose column + aggregation (Sum, Count, Avg)</td></tr>
+    <tr><td><strong>Split Column</strong> (QB Q31)</td><td>Split one column into multiple</td><td>Home → Split Column → By Delimiter or By Number of Characters</td></tr>
+    <tr><td><strong>M Language</strong> (QB Q10)</td><td>Scripting language behind Power Query</td><td>All transformations generate M code in Advanced Editor</td></tr>
+  </table></div>
+</section>
+
+<section id="u4-model">
+  <div class="stitle">Data Modeling</div>
+
+  <h3>Creating Relationships (QB Q26)</h3>
+  <p>Steps: Model view → Drag field from one table to matching field in another → Power BI creates a relationship. Or: Home → Manage Relationships → New.</p>
+
+  <h3>Star Schema vs Snowflake Schema (QB Q32, Q38)</h3>
+  <div class="diag">
+    <div class="dtitle">Star Schema vs Snowflake Schema</div>
+    <svg viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <!-- Star Schema -->
+      <text x="165" y="18" fill="var(--gold)" text-anchor="middle" font-size="13" font-weight="bold">Star Schema</text>
+      <rect x="115" y="85" width="100" height="40" rx="6" fill="#1a2030" stroke="var(--gold)" stroke-width="2"/>
+      <text x="165" y="109" fill="var(--gold)" text-anchor="middle" font-size="11">Fact Table</text>
+      <rect x="20" y="25" width="90" height="32" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="65" y="44" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Date</text>
+      <rect x="230" y="25" width="90" height="32" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="275" y="44" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Product</text>
+      <rect x="20" y="155" width="90" height="32" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="65" y="174" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Customer</text>
+      <rect x="230" y="155" width="90" height="32" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="275" y="174" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Region</text>
+      <line x1="115" y1="100" x2="110" y2="55" stroke="var(--gold)" stroke-width="1.5"/>
+      <line x1="215" y1="100" x2="230" y2="55" stroke="var(--gold)" stroke-width="1.5"/>
+      <line x1="125" y1="125" x2="110" y2="163" stroke="var(--gold)" stroke-width="1.5"/>
+      <line x1="210" y1="125" x2="230" y2="163" stroke="var(--gold)" stroke-width="1.5"/>
+
+      <!-- Divider -->
+      <line x1="340" y1="0" x2="340" y2="220" stroke="var(--border)" stroke-width="1" stroke-dasharray="5,3"/>
+
+      <!-- Snowflake Schema -->
+      <text x="500" y="18" fill="var(--blue)" text-anchor="middle" font-size="13" font-weight="bold">Snowflake Schema</text>
+      <rect x="450" y="85" width="100" height="40" rx="6" fill="#1a2030" stroke="var(--gold)" stroke-width="2"/>
+      <text x="500" y="109" fill="var(--gold)" text-anchor="middle" font-size="11">Fact Table</text>
+      <rect x="360" y="30" width="80" height="28" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="400" y="47" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Product</text>
+      <rect x="355" y="0" width="90" height="24" rx="4" fill="#1a2030" stroke="var(--cyan)" stroke-width="1.2"/>
+      <text x="400" y="14" fill="var(--cyan)" text-anchor="middle" font-size="8">Sub: Category</text>
+      <rect x="560" y="30" width="85" height="28" rx="4" fill="#1a2030" stroke="var(--blue)" stroke-width="1.5"/>
+      <text x="603" y="47" fill="var(--blue)" text-anchor="middle" font-size="9">Dim: Date</text>
+      <rect x="560" y="0" width="85" height="24" rx="4" fill="#1a2030" stroke="var(--cyan)" stroke-width="1.2"/>
+      <text x="603" y="14" fill="var(--cyan)" text-anchor="middle" font-size="8">Sub: Year/Month</text>
+      <line x1="450" y1="100" x2="440" y2="58" stroke="var(--gold)" stroke-width="1.5"/>
+      <line x1="400" y1="58" x2="400" y2="24" stroke="var(--blue)" stroke-width="1.3"/>
+      <line x1="550" y1="100" x2="560" y2="58" stroke="var(--gold)" stroke-width="1.5"/>
+      <line x1="603" y1="58" x2="603" y2="24" stroke="var(--blue)" stroke-width="1.3"/>
+      <text x="400" y="210" fill="var(--muted)" text-anchor="middle" font-size="9">Direct connections — Less joins</text>
+      <text x="540" y="210" fill="var(--muted)" text-anchor="middle" font-size="9">Normalized — More joins needed</text>
+    </svg>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Aspect</th><th>Star Schema</th><th>Snowflake Schema</th></tr>
+    <tr><td>Structure</td><td>Fact table directly linked to dimension tables</td><td>Dimension tables further normalized into sub-dimensions</td></tr>
+    <tr><td>Joins needed</td><td>Fewer joins (simple queries)</td><td>More joins (complex queries)</td></tr>
+    <tr><td>Query performance</td><td>✅ Faster</td><td>Slower (more joins)</td></tr>
+    <tr><td>Data redundancy</td><td>More redundancy</td><td>Less redundancy (normalized)</td></tr>
+    <tr><td>Power BI preferred</td><td>✅ Yes — recommended for Power BI</td><td>Possible but less optimal</td></tr>
+  </table></div>
+</section>
+
+<section id="u4-dax">
+  <div class="stitle">DAX Functions <span class="pill">EXAM IMPORTANT</span></div>
+
+  <div class="box gold">
+    <div class="lbl">QB Q21 — Measure vs Calculated Column</div>
+    <strong>Measure:</strong> Computed dynamically at query time based on filter context. Stored as formula, not data. (e.g., Total Sales = SUM(Sales[Amount]))<br>
+    <strong>Calculated Column:</strong> Computed at data refresh, stored as actual column in table. Row-by-row calculation. (e.g., Profit = Sales[Revenue] - Sales[Cost])
+  </div>
+
+  <div class="code-block">
+    <div class="code-head"><span>DAX · ESSENTIAL FUNCTIONS</span><span style="color:var(--muted)">QB Q11, Q12, Q22, Q29, Q30, Q37, Q39</span></div>
+    <pre><code><span class="cm">// QB Q22: Average Sales</span>
+Average Sales = <span class="fn">AVERAGE</span>(Sales[Amount])
+
+<span class="cm">// QB Q12: COUNT vs COUNTROWS</span>
+<span class="cm">// COUNT(column) → counts non-blank values in a column</span>
+<span class="cm">// COUNTROWS(table) → counts total rows in a table (including blanks)</span>
+Count Orders = <span class="fn">COUNTROWS</span>(Orders)
+Count Products = <span class="fn">COUNT</span>(Products[ProductID])
+
+<span class="cm">// QB Q30: SUM vs SUMX</span>
+<span class="cm">// SUM(column) → simple sum of an existing column</span>
+Total Revenue = <span class="fn">SUM</span>(Sales[Revenue])
+<span class="cm">// SUMX(table, expression) → iterates each row, evaluates expression, sums results</span>
+Total Profit = <span class="fn">SUMX</span>(Sales, Sales[Revenue] - Sales[Cost])
+
+<span class="cm">// QB Q11: YTD (Year-To-Date)</span>
+YTD Sales = <span class="fn">TOTALYTD</span>(<span class="fn">SUM</span>(Sales[Amount]), Dates[Date])
+
+<span class="cm">// QB Q37: Time Intelligence</span>
+<span class="cm">// MTD (Month-To-Date)</span>
+MTD Sales = <span class="fn">TOTALMTD</span>(<span class="fn">SUM</span>(Sales[Amount]), Dates[Date])
+
+<span class="cm">// SAMEPERIODLASTYEAR</span>
+Last Year Sales = <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Sales[Amount]),
+                    <span class="fn">SAMEPERIODLASTYEAR</span>(Dates[Date]))
+
+<span class="cm">// QB Q29: Month-over-Month Growth</span>
+MoM Growth = 
+<span class="kw">VAR</span> CurrentMonth = <span class="fn">SUM</span>(Sales[Amount])
+<span class="kw">VAR</span> PreviousMonth = <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Sales[Amount]),
+                        <span class="fn">DATEADD</span>(Dates[Date], -<span class="nu">1</span>, MONTH))
+<span class="kw">RETURN</span> <span class="fn">DIVIDE</span>(CurrentMonth - PreviousMonth, PreviousMonth, <span class="nu">0</span>)
+
+<span class="cm">// QB Q39: CALCULATE and FILTER</span>
+<span class="cm">// CALCULATE: evaluates expression in a modified filter context</span>
+High Value Sales = <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Sales[Amount]),
+                    Sales[Amount] > <span class="nu">1000</span>)
+
+<span class="cm">// FILTER: returns a table filtered by a condition (used inside CALCULATE)</span>
+Top Sales = <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Sales[Amount]),
+              <span class="fn">FILTER</span>(Sales, Sales[Region] = <span class="st">"North"</span>))</code></pre>
+  </div>
+</section>
+
+<section id="u4-viz">
+  <div class="stitle">Power BI Visualizations</div>
+
+  <div class="tw"><table>
+    <tr><th>Visual</th><th>Best Use Case</th><th>Key Features</th></tr>
+    <tr><td><strong>Bar/Column Chart</strong></td><td>Compare values across categories</td><td>Clustered, stacked, 100% stacked variants</td></tr>
+    <tr><td><strong>Line Chart</strong></td><td>Trends over time</td><td>Multiple series, continuous x-axis</td></tr>
+    <tr><td><strong>Pie/Donut Chart</strong></td><td>Part-to-whole (QB Q3)</td><td>Max 8 slices recommended</td></tr>
+    <tr><td><strong>KPI Visual</strong> (QB Q4)</td><td>Track progress toward a goal</td><td>Shows actual value, target, and trend indicator</td></tr>
+    <tr><td><strong>Matrix</strong></td><td>Cross-tabulation with totals</td><td>Supports drill-down, conditional formatting</td></tr>
+    <tr><td><strong>Scatter Plot</strong></td><td>Correlations between 2+ measures</td><td>Can use play axis for time animation</td></tr>
+    <tr><td><strong>Funnel Chart</strong></td><td>Process stages with drop-off</td><td>Sales pipeline, conversion rates</td></tr>
+    <tr><td><strong>Decomposition Tree</strong> (QB Q19)</td><td>Root cause analysis, hierarchical breakdown</td><td>AI splits, manual splits across any dimension</td></tr>
+    <tr><td><strong>Card/Multi-row Card</strong></td><td>Single KPI numbers</td><td>Shows one metric prominently</td></tr>
+    <tr><td><strong>Treemap</strong></td><td>Hierarchical data by area</td><td>Size = magnitude, color = category</td></tr>
+  </table></div>
+
+  <h3>Slicer (QB Q6)</h3>
+  <p>A slicer is a visual filter that allows users to filter all other visuals on the page interactively. Types: List, Dropdown, Between (range), Date/Time. Used for: Region, Date range, Product category filtering.</p>
+
+  <h3>Bookmarks (QB Q18)</h3>
+  <p>Bookmarks capture the current state of a report page (filters, visuals, slicer positions). Used for: navigation buttons, storytelling, toggle views, drill-through scenarios.</p>
+
+  <h3>Conditional Formatting (QB Q27)</h3>
+  <p>Steps: Select table visual → Format pane → Cell elements → Background color → Format by: Gradient / Rules / Field value. Can format by color scale, icon sets, or data bars.</p>
+
+  <h3>Dynamic Title (QB Q34)</h3>
+  <div class="code-block">
+    <div class="code-head"><span>DAX · DYNAMIC TITLE</span></div>
+    <pre><code><span class="cm">// Creates a title that changes based on slicer selection</span>
+Dynamic Title = <span class="st">"Sales Report - "</span> & <span class="fn">SELECTEDVALUE</span>(Dates[Year], <span class="st">"All Years"</span>)
+<span class="cm">// Then: Visual → Format → Title → fx → Field value → Select this measure</span></code></pre>
+  </div>
+</section>
+
+<section id="u4-dash">
+  <div class="stitle">Publishing & Sharing (QB Q25, Q35, Q40)</div>
+  <ol>
+    <li>File → Publish → Power BI Service (requires Power BI Pro account)</li>
+    <li>In Power BI Service: Share report via link, embed in Teams, or create Apps</li>
+    <li>Set row-level security (RLS) for data permissions</li>
+    <li>Schedule data refresh for connected data sources</li>
+    <li>Export to PDF/PowerPoint for offline sharing</li>
+  </ol>
+</section>
+
+<!-- ═══ UNIT 5 — GOOGLE LOOKER STUDIO ═══ -->
+<div id="u5" class="uhead" style="border-left-color:var(--green)">
+  <div class="utag" style="color:var(--green);background:rgba(126,232,162,.1)">UNIT 5 · 10 HRS · 10%</div>
+  <div>
+    <h2>Google Looker Studio</h2>
+    <p>Data Sources · LookML · Visualizations · Controls · Dashboards</p>
+  </div>
+</div>
+
+<section id="u5-ds">
+  <div class="stitle">Data Sources & Connections</div>
+
+  <div class="box green">
+    <div class="lbl">QB Q1 — Data Source</div>
+    A <strong>data source</strong> is a connection between Looker Studio and a dataset. It defines which fields are available (as dimensions or metrics) for building charts and reports.
+  </div>
+
+  <h3>Connecting Google Sheets (QB Q2)</h3>
+  <ol>
+    <li>Create/Add Data → Google Sheets connector</li>
+    <li>Select your Google account and the target spreadsheet</li>
+    <li>Choose the specific sheet and set header row configuration</li>
+    <li>Click "Connect" → Data source is created</li>
+  </ol>
+
+  <h3>Available Data Connectors (QB Q3)</h3>
+  <div class="chart-grid">
+    <div class="chart-card"><div class="chart-icon">📊</div><h5>Google Sheets</h5><p>Direct connection to Google Spreadsheets</p></div>
+    <div class="chart-card"><div class="chart-icon">📈</div><h5>Google Analytics 4</h5><p>Website traffic and user behavior data</p></div>
+    <div class="chart-card"><div class="chart-icon">🗄️</div><h5>BigQuery</h5><p>Google's enterprise data warehouse</p></div>
+    <div class="chart-card"><div class="chart-icon">📢</div><h5>Google Ads</h5><p>Advertising performance data</p></div>
+    <div class="chart-card"><div class="chart-icon">🔍</div><h5>Search Console</h5><p>SEO performance metrics</p></div>
+    <div class="chart-card"><div class="chart-icon">📁</div><h5>CSV Upload / SQL</h5><p>File uploads and database connections</p></div>
+  </div>
+
+  <h3>Dimensions vs Metrics (QB Q5)</h3>
+  <div class="g2">
+    <div class="box blue">
+      <div class="lbl">Dimensions</div>
+      Qualitative attributes used to <strong>group</strong> data. Green in Looker Studio.<br>
+      Examples: Country, Product Name, Date, Category<br>
+      Used for: X-axis, group labels, filters
+    </div>
+    <div class="box blue">
+      <div class="lbl">Metrics</div>
+      Quantitative values to <strong>measure</strong>. Blue in Looker Studio.<br>
+      Examples: Revenue, Sessions, Units Sold, Click Rate<br>
+      Used for: Y-axis values, KPI cards, aggregations
+    </div>
+  </div>
+
+  <h3>Editing Schema (QB Q4)</h3>
+  <p>When you edit the schema of a connected Google Sheet in Looker Studio: You can rename fields, change data types (Text/Number/Date), add calculated fields, and set default aggregations. Changes affect how Looker Studio interprets and displays the data but do NOT change the underlying Google Sheet.</p>
+
+  <h3>LookML (QB Q from course file)</h3>
+  <p><strong>LookML (Looker Modeling Language)</strong> is a SQL-based language used in Looker (not Looker Studio) to define data models. It describes:</p>
+  <ul>
+    <li><strong>Views:</strong> Map to database tables or derived tables</li>
+    <li><strong>Dimensions:</strong> Column definitions and transformations</li>
+    <li><strong>Measures:</strong> Aggregations (SUM, COUNT, AVERAGE)</li>
+    <li><strong>Explores:</strong> Defines which views can be joined together</li>
+  </ul>
+</section>
+
+<section id="u5-charts">
+  <div class="stitle">Charts & Controls</div>
+
+  <h3>Chart Types in Looker Studio (QB Q6)</h3>
+  <div class="tw"><table>
+    <tr><th>Chart Type</th><th>Best For</th><th>QB Reference</th></tr>
+    <tr><td><strong>Time Series</strong></td><td>Trends over time (QB Q7, Q10)</td><td>Uses Date dimension automatically</td></tr>
+    <tr><td><strong>Bar Chart</strong></td><td>Comparing categories</td><td>Vertical bars, supports drill-down</td></tr>
+    <tr><td><strong>Pie/Donut</strong></td><td>Part-to-whole (&lt;8 categories)</td><td>QB Q9: use pie when few categories</td></tr>
+    <tr><td><strong>Table</strong></td><td>Detailed data view</td><td>QB Q8: shows multiple rows/columns</td></tr>
+    <tr><td><strong>Scorecard</strong></td><td>Single KPI number</td><td>QB Q8: shows ONE metric prominently</td></tr>
+    <tr><td><strong>Scatter Chart</strong></td><td>Correlations between metrics</td><td>Two numeric dimensions</td></tr>
+    <tr><td><strong>Geo Map</strong></td><td>Geographic data</td><td>Country/region dimension</td></tr>
+    <tr><td><strong>Bullet Chart</strong></td><td>KPI vs target comparison</td><td>Shows actual vs goal</td></tr>
+  </table></div>
+
+  <div class="box gold">
+    <div class="lbl">QB Q8 — Table vs Scorecard</div>
+    <strong>Table:</strong> Shows multiple rows and columns — like a spreadsheet. Good for detailed data comparison.<br>
+    <strong>Scorecard:</strong> Shows a SINGLE number/metric prominently. Used for KPIs like "Total Revenue: $1.2M"
+  </div>
+
+  <div class="box blue">
+    <div class="lbl">QB Q9 — Pie vs Bar in Looker Studio</div>
+    <strong>Pie Chart:</strong> When showing proportions of a whole with FEWER than 8 categories and the parts-to-whole story matters.<br>
+    <strong>Bar Chart:</strong> When comparing values across many categories or when precise value comparison is needed.
+  </div>
+
+  <h3>Filter Controls (QB Q11–Q20)</h3>
+  <div class="tw"><table>
+    <tr><th>Control Type</th><th>QB #</th><th>Description & Use</th></tr>
+    <tr><td><strong>Drop-Down List</strong></td><td>Q11</td><td>Allows users to select one value from a list to filter all charts. Saves space vs fixed-size list. Fixed-size list shows all options visible at once.</td></tr>
+    <tr><td><strong>Date Range Control</strong></td><td>Q13</td><td>Lets users select start/end dates to filter time-based data across the whole report or specific charts.</td></tr>
+    <tr><td><strong>Input Box</strong></td><td>Q14</td><td>Users type a value to filter (e.g., type a product name). Good for exact text matching.</td></tr>
+    <tr><td><strong>Checkbox Control</strong></td><td>Q17</td><td>Allows users to select/deselect multiple filter values simultaneously from a visible list of checkboxes.</td></tr>
+    <tr><td><strong>Button Control</strong></td><td>Q18</td><td>Triggers actions like navigating to another page or applying a specific filter state. Used for interactivity and navigation.</td></tr>
+    <tr><td><strong>Dimension Control</strong></td><td>Q19</td><td>Lets users switch the dimension being analyzed in charts (e.g., view by Country OR by Product). Dynamic axis switching.</td></tr>
+    <tr><td><strong>Data Control</strong></td><td>Q16</td><td>Lets viewers switch the entire data source of a report component at runtime. For reports serving multiple clients/datasets.</td></tr>
+    <tr><td><strong>Advanced Filter</strong></td><td>Q20</td><td>Supports complex filtering with AND/OR conditions, regex, and multiple criteria simultaneously. More powerful than basic dropdown.</td></tr>
+  </table></div>
+
+  <div class="box green">
+    <div class="lbl">QB Q15 — Fixed-Size List vs Drop-Down List</div>
+    <strong>Fixed-size list:</strong> Shows all filter options as a scrollable list visible on the report. Takes more space. No clicking needed to see options.<br>
+    <strong>Drop-down list:</strong> Compact — options appear only when clicked. Saves report space. Better for many filter options.
+  </div>
+</section>
+
+<section id="u5-dash">
+  <div class="stitle">Building Dashboards in Looker Studio</div>
+
+  <h3>Building Queries in Looker (Course Syllabus Topics)</h3>
+  <ul>
+    <li><strong>Exploring Datasets:</strong> Use the Explore section to browse data, apply dimensions/metrics, and run ad-hoc queries</li>
+    <li><strong>Filtering:</strong> Add dimension filters (e.g., Country = "India") or metric filters (e.g., Revenue &gt; 10000)</li>
+    <li><strong>Aggregations:</strong> SUM, COUNT, AVERAGE, MAX, MIN applied to metrics per dimension group</li>
+  </ul>
+
+  <h3>Creating Dashboards</h3>
+  <ol>
+    <li>Open Looker Studio → Blank Report or from template</li>
+    <li>Add Data Source → Connect to your data</li>
+    <li>Insert charts using the toolbar (Add a chart)</li>
+    <li>Configure each chart: set dimensions, metrics, filters, sort order</li>
+    <li>Add filter controls for interactivity</li>
+    <li>Arrange visuals using drag-and-drop</li>
+    <li>Add drill-downs: right-click chart → Add drill-down</li>
+    <li>Add annotations: Insert → Text or Shape for context</li>
+    <li>Share: File → Share → Add people OR Manage access → Get link</li>
+  </ol>
+
+  <h3>Configuring Interactivity</h3>
+  <div class="g3">
+    <div class="gc"><h5>Filters</h5><p>Charts can be used as filters. Click "Make reports level filter" on any chart. Filter controls apply globally or to specific charts.</p></div>
+    <div class="gc"><h5>Drill-Downs</h5><p>Set up drill-down hierarchy on charts. Click drill-down icon to go from Country → State → City. Configurable in chart settings.</p></div>
+    <div class="gc"><h5>Dynamic Content</h5><p>Use Dimension Control to let viewers switch what dimension is displayed. Data Control lets them switch data sources entirely.</p></div>
+  </div>
+
+  <h3>Visualizations Customization & Annotations</h3>
+  <ul>
+    <li><strong>Style tab:</strong> Change colors, fonts, background, borders for each chart</li>
+    <li><strong>Annotations:</strong> Insert → Text box to add contextual explanations near charts</li>
+    <li><strong>Reference Lines:</strong> Add target/threshold lines on time series and bar charts</li>
+    <li><strong>Conditional formatting:</strong> Available in table charts — color cells by value ranges</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<div style="margin-top:60px;padding:20px 0;border-top:1px solid var(--border);text-align:center">
+  <p style="color:var(--muted);font-size:.75rem;font-family:'JetBrains Mono',monospace;line-height:1.8">
+    Data Visualization · BTech CSE Semester VI · Dr. Nikita Joshi · Adani University<br>
+    Based on Course File + Question Bank · Libraries: Matplotlib · Seaborn · Plotly · Power BI · Google Looker Studio
+  </p>
+</div>
+</div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+const links=document.querySelectorAll('.sb-a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('act'));
+      const lk=document.querySelector(`.sb-a[href="#${e.target.id}"]`);
+      if(lk)lk.classList.add('act');
+    }
+  });
+},{threshold:0.15,rootMargin:'-60px 0px -60% 0px'});
+document.querySelectorAll('[id]').forEach(el=>{
+  if(document.querySelector(`.sb-a[href="#${el.id}"]`))obs.observe(el);
+});
+</script>
+</body>
+</html>
