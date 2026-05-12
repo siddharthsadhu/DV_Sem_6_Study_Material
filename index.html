@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DV Sem 6 Study Material</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0d1117;
+      color:white;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    .bg{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#1f6feb33,transparent 30%),
+      radial-gradient(circle at bottom right,#9333ea33,transparent 30%);
+      z-index:-1;
+    }
+
+    .container{
+      width:90%;
+      max-width:1100px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 18px;
+      background:#1f6feb22;
+      border:1px solid #1f6feb66;
+      border-radius:30px;
+      color:#58a6ff;
+      margin-bottom:25px;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+
+    h1{
+      font-size:4rem;
+      margin-bottom:20px;
+      line-height:1.1;
+    }
+
+    h1 span{
+      color:#58a6ff;
+    }
+
+    p{
+      color:#c9d1d9;
+      font-size:18px;
+      max-width:800px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .cards{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#161b22;
+      border:1px solid #30363d;
+      border-radius:20px;
+      padding:35px;
+      transition:0.3s;
+      text-align:left;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#58a6ff;
+      box-shadow:0 10px 40px rgba(88,166,255,0.2);
+    }
+
+    .icon{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .card h2{
+      margin-bottom:15px;
+      color:white;
+    }
+
+    .card p{
+      font-size:15px;
+      margin-bottom:25px;
+      color:#8b949e;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 24px;
+      background:#238636;
+      color:white;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#2ea043;
+    }
+
+    footer{
+      margin-top:60px;
+      color:#8b949e;
+      font-size:14px;
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+  <div class="badge">
+    DATA VISUALIZATION • SEMESTER 6
+  </div>
+
+  <h1>
+    DV Sem 6 <span>Study Material</span>
+  </h1>
+
+  <p>
+    Complete Data Visualization repository containing interactive notes,
+    practical programs, Python visualization examples, question bank solutions,
+    Power BI concepts, Plotly, Seaborn, Matplotlib and exam preparation material.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">📘</div>
+      <h2>Complete Study Material</h2>
+
+      <p>
+        Detailed theory notes with modern UI design, diagrams,
+        examples, code snippets and structured semester preparation.
+      </p>
+
+      <a href="DataVisualization_Study_Material.html" class="btn">
+        Open Study Material
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h2>Question Bank Solutions</h2>
+
+      <p>
+        Full solved question bank including theory answers,
+        practical codes, tables, explanations and exam-oriented preparation.
+      </p>
+
+      <a href="data_visualization_full_question_bank_solution.html" class="btn">
+        Open Question Bank
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    Made with ❤️ for Semester 6 ICT  Students
+  </footer>
+
+</div>
+
+</body>
+</html>
